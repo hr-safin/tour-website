@@ -4,115 +4,72 @@ import { MapPin, Plane, Building2, FileText } from "lucide-react";
 export default function SearchBar() {
   const [activeTab, setActiveTab] = useState("tour");
 
+  const tabs = [
+    { id: "tour", label: "Tour", icon: MapPin },
+    { id: "flight", label: "Flight", icon: Plane },
+    { id: "hotel", label: "Hotel", icon: Building2 },
+    { id: "visa", label: "Visa", icon: FileText },
+  ];
+
   return (
-    <div className="relative -mt-20 z-10 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Tab Buttons */}
-        <div className="flex gap-2 mb-0 flex-wrap">
-          <button
-            onClick={() => setActiveTab("tour")}
-            className={`flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 font-semibold transition-all rounded-t-2xl ${
-              activeTab === "tour"
-                ? "bg-primary text-white shadow-lg"
-                : "bg-white/90 text-gray-700 hover:bg-white"
-            }`}
-          >
-            <MapPin size={20} />
-            <span className="text-sm md:text-base">Tour</span>
-          </button>
-          <button
-            onClick={() => setActiveTab("flight")}
-            className={`flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 font-semibold transition-all rounded-t-2xl ${
-              activeTab === "flight"
-                ? "bg-primary text-white shadow-lg"
-                : "bg-white/90 text-gray-700 hover:bg-white"
-            }`}
-          >
-            <Plane size={20} />
-            <span className="text-sm md:text-base">Flight</span>
-          </button>
-          <button
-            onClick={() => setActiveTab("hotel")}
-            className={`flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 font-semibold transition-all rounded-t-2xl ${
-              activeTab === "hotel"
-                ? "bg-primary text-white shadow-lg"
-                : "bg-white/90 text-gray-700 hover:bg-white"
-            }`}
-          >
-            <Building2 size={20} />
-            <span className="text-sm md:text-base">Hotel</span>
-          </button>
-          <button
-            onClick={() => setActiveTab("visa")}
-            className={`flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 font-semibold transition-all rounded-t-2xl ${
-              activeTab === "visa"
-                ? "bg-primary text-white shadow-lg"
-                : "bg-white/90 text-gray-700 hover:bg-white"
-            }`}
-          >
-            <FileText size={20} />
-            <span className="text-sm md:text-base">Visa</span>
-          </button>
+    <div className="relative -mt-24 flex justify-center px-4 z-20">
+      <div className="w-full max-w-5xl bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-6">
+        {/* Tabs centered */}
+        <div className="flex justify-center gap-3 mb-6 flex-wrap">
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-6 py-2 rounded-full font-semibold transition ${
+                  activeTab === tab.id
+                    ? "bg-blue-600 text-white shadow-lg"
+                    : "bg-gray-100 hover:bg-gray-200"
+                }`}
+              >
+                <Icon size={18} />
+                {tab.label}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Search Form */}
+        {/* Form */}
         {activeTab === "tour" && (
-          <div className="bg-gradient-to-br from-primary/10 to-yellow-50 rounded-b-3xl rounded-tr-3xl shadow-2xl p-6 md:p-8">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-end">
-              {/* Destination Select */}
-              <div className="md:col-span-5 flex flex-col">
-                <label className="text-gray-700 text-xs md:text-sm font-semibold mb-2 md:mb-3 flex items-center gap-2">
-                  <MapPin size={16} className="text-primary" />
-                  Destination
-                </label>
-                <select className="w-full px-4 md:px-5 py-3 md:py-4 rounded-xl border-0 focus:ring-2 focus:ring-primary focus:outline-none text-gray-700 bg-white shadow-md font-medium text-sm md:text-base">
-                  <option value="">Select Destination</option>
-                  <option value="switzerland">Switzerland</option>
-                  <option value="paris">Paris, France</option>
-                  <option value="tokyo">Tokyo, Japan</option>
-                  <option value="bali">Bali, Indonesia</option>
-                  <option value="dubai">Dubai, UAE</option>
-                  <option value="maldives">Maldives</option>
-                </select>
-              </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            <select className="input-style">
+              <option>Destination</option>
+              <option>Switzerland</option>
+              <option>Paris</option>
+              <option>Dubai</option>
+            </select>
 
-              {/* Tour Type Select */}
-              <div className="md:col-span-5 flex flex-col">
-                <label className="text-gray-700 text-xs md:text-sm font-semibold mb-2 md:mb-3 flex items-center gap-2">
-                  <MapPin size={16} className="text-primary" />
-                  Tour Type
-                </label>
-                <select className="w-full px-4 md:px-5 py-3 md:py-4 rounded-xl border-0 focus:ring-2 focus:ring-primary focus:outline-none text-gray-700 bg-white shadow-md font-medium text-sm md:text-base">
-                  <option value="">Select Tour Type</option>
-                  <option value="adventure">Adventure Tour</option>
-                  <option value="cultural">Cultural Tour</option>
-                  <option value="honeymoon">Honeymoon Package</option>
-                  <option value="family">Family Tour</option>
-                  <option value="luxury">Luxury Tour</option>
-                  <option value="budget">Budget Tour</option>
-                </select>
-              </div>
+            <select className="input-style">
+              <option>Tour Type</option>
+              <option>Adventure</option>
+              <option>Family</option>
+              <option>Luxury</option>
+            </select>
 
-              {/* Search Button */}
-              <div className="md:col-span-2">
-                <button className="w-full bg-primary hover:bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-sm md:text-lg transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Search
-                </button>
-              </div>
-            </div>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition">
+              Search
+            </button>
           </div>
         )}
 
-        {/* Other Tab Placeholders */}
         {activeTab !== "tour" && (
-          <div className="bg-gradient-to-br from-green-50 to-yellow-50 rounded-b-3xl rounded-tr-3xl shadow-2xl p-6 md:p-8 text-center">
-            <p className="text-gray-700 font-semibold text-sm md:text-base">
-              Coming Soon -{" "}
-              {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Booking
-            </p>
-          </div>
+          <p className="text-center text-gray-500 py-6">
+            {activeTab.toUpperCase()} booking coming soon
+          </p>
         )}
       </div>
+
+      <style>{`
+        .input-style {
+          @apply px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none;
+        }
+      `}</style>
     </div>
   );
 }

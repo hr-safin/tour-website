@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const StatsNewsletterFooter = () => {
   const [email, setEmail] = useState("");
+  const [counters, setCounters] = useState({
+    travelers: 0,
+    packages: 0,
+    reviews: 0,
+    experience: 0,
+  });
 
   const stats = [
     {
       id: 1,
+      number: 220000,
+      label: "Happy Travelers",
       icon: (
         <svg
           className="w-12 h-12"
@@ -22,12 +30,12 @@ const StatsNewsletterFooter = () => {
           <circle cx="32" cy="12" r="2" fill="currentColor" />
         </svg>
       ),
-      number: "220 K+",
-      label: "Happy Traveler",
-      color: "text-primary",
+      key: "travelers",
     },
     {
       id: 2,
+      number: 200,
+      label: "Special Packages",
       icon: (
         <svg
           className="w-12 h-12"
@@ -47,12 +55,12 @@ const StatsNewsletterFooter = () => {
           />
         </svg>
       ),
-      number: "200+",
-      label: "Special Packages",
-      color: "text-primary",
+      key: "packages",
     },
     {
       id: 3,
+      number: 9950,
+      label: "Positive Reviews",
       icon: (
         <svg
           className="w-12 h-12"
@@ -74,12 +82,12 @@ const StatsNewsletterFooter = () => {
           />
         </svg>
       ),
-      number: "99.5%",
-      label: "Positives Review",
-      color: "text-primary",
+      key: "reviews",
     },
     {
       id: 4,
+      number: 16,
+      label: "Years of Experience",
       icon: (
         <svg
           className="w-12 h-12"
@@ -100,11 +108,34 @@ const StatsNewsletterFooter = () => {
           />
         </svg>
       ),
-      number: "16+",
-      label: "Years of experience",
-      color: "text-primary",
+      key: "experience",
     },
   ];
+
+  // Animate counters
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounters((prev) => ({
+        travelers:
+          prev.travelers < stats[0].number
+            ? prev.travelers + Math.ceil(stats[0].number / 120)
+            : stats[0].number,
+        packages:
+          prev.packages < stats[1].number
+            ? prev.packages + Math.ceil(stats[1].number / 100)
+            : stats[1].number,
+        reviews:
+          prev.reviews < stats[2].number
+            ? prev.reviews + Math.ceil(stats[2].number / 100)
+            : stats[2].number,
+        experience:
+          prev.experience < stats[3].number
+            ? prev.experience + 1
+            : stats[3].number,
+      }));
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -114,151 +145,54 @@ const StatsNewsletterFooter = () => {
 
   return (
     <>
-      {/* Statistics Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.id}
-                className="group text-center animate-fadeInUp"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex flex-col items-center space-y-4">
-                  <div
-                    className={`${stat.color} transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
-                  >
-                    {stat.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-2">
-                      {stat.number}
-                    </h3>
-                    <p className="text-slate-600 font-medium">{stat.label}</p>
-                  </div>
-                </div>
-                {/* Divider line - hidden on last item on large screens */}
-                {index < stats.length - 1 && (
-                  <div className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 w-px h-16 bg-slate-200"></div>
-                )}
+      {/* Stats */}
+      <section className="py-16 px-4 bg-gradient-to-r from-sky-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {stats.map((stat, idx) => (
+            <div
+              key={stat.id}
+              className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col items-center gap-4"
+            >
+              <div className="text-primary group-hover:scale-110 transition-transform duration-500">
+                {stat.icon}
               </div>
-            ))}
-          </div>
+              <h3 className="text-4xl md:text-5xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-sky-500">
+                {counters[stat.key].toLocaleString()}
+                {stat.key === "reviews" ? "%" : stat.key === "travelers" ? " K+" : ""}
+              </h3>
+              <p className="text-slate-600 font-medium">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-slate-800 to-slate-900 overflow-hidden">
-        {/* Decorative Palm Leaves */}
-        <div className="absolute top-0 left-0 w-72 h-72 opacity-20">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <path
-              d="M10,100 Q30,50 50,40 T90,50 Q100,70 95,90 L70,100 Z"
-              fill="#10b981"
-              opacity="0.6"
-            />
-            <path
-              d="M10,100 Q20,110 30,130 T50,160 Q60,150 55,130 L40,110 Z"
-              fill="#10b981"
-              opacity="0.8"
-            />
-            <ellipse
-              cx="70"
-              cy="140"
-              rx="40"
-              ry="60"
-              fill="#10b981"
-              opacity="0.4"
-              transform="rotate(-30 70 140)"
-            />
-          </svg>
-        </div>
-
-        <div className="absolute top-0 right-0 w-72 h-72 opacity-20 transform scale-x-[-1]">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <path
-              d="M10,100 Q30,50 50,40 T90,50 Q100,70 95,90 L70,100 Z"
-              fill="#10b981"
-              opacity="0.6"
-            />
-            <path
-              d="M10,100 Q20,110 30,130 T50,160 Q60,150 55,130 L40,110 Z"
-              fill="#10b981"
-              opacity="0.8"
-            />
-            <ellipse
-              cx="70"
-              cy="140"
-              rx="40"
-              ry="60"
-              fill="#10b981"
-              opacity="0.4"
-              transform="rotate(-30 70 140)"
-            />
-          </svg>
-        </div>
-
-        <div className="absolute bottom-0 left-0 w-96 h-96 opacity-10">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <ellipse
-              cx="50"
-              cy="100"
-              rx="60"
-              ry="80"
-              fill="#10b981"
-              opacity="0.6"
-            />
-            <path
-              d="M20,80 Q40,50 60,45 Q70,60 65,80 Z"
-              fill="#10b981"
-              opacity="0.8"
-            />
-          </svg>
-        </div>
-
-        <div className="absolute bottom-0 right-0 w-96 h-96 opacity-10 transform scale-x-[-1]">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <ellipse
-              cx="50"
-              cy="100"
-              rx="60"
-              ry="80"
-              fill="#10b981"
-              opacity="0.6"
-            />
-            <path
-              d="M20,80 Q40,50 60,45 Q70,60 65,80 Z"
-              fill="#10b981"
-              opacity="0.8"
-            />
-          </svg>
-        </div>
-
-        <div className="max-w-4xl mx-auto relative z-10 text-center bg-white rounded-3xl p-12 shadow-2xl animate-scaleIn">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
-            Join The Newsletter
+      {/* Newsletter */}
+      <section className="relative py-20 px-4 bg-gradient-to-br from-indigo-900 to-sky-900 text-white overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10 text-center bg-white text-slate-900 rounded-3xl p-12 shadow-2xl animate-scaleIn">
+          <h2 className="text-4xl md:text-5xl font-black mb-4">
+            Join Our Newsletter
           </h2>
-          <p className="text-lg text-slate-600 mb-8">
-            To receive our best monthly deals
+          <p className="text-lg mb-8">
+            Get exclusive monthly deals and travel inspiration
           </p>
 
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto"
+            className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto"
           >
             <input
               type="email"
-              placeholder="Enter Your Email..."
+              placeholder="Enter your email..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 px-6 py-4 rounded-lg border-2 border-slate-200 focus:border-primary focus:outline-none transition-colors duration-300 text-slate-700"
+              className="flex-1 px-6 py-4 rounded-lg border-2 border-slate-300 focus:border-indigo-500 focus:outline-none transition-colors duration-300"
             />
             <button
               type="submit"
-              className="group bg-primary hover:bg-primary text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-xl flex items-center justify-center gap-2"
+              className="bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-sky-500 hover:to-indigo-500 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-xl flex items-center justify-center gap-2"
             >
-              <span>Subscribe</span>
+              Subscribe
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                 fill="none"
@@ -279,203 +213,64 @@ const StatsNewsletterFooter = () => {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            {/* Column 1 - Brand */}
-            <div className="space-y-6 animate-fadeInUp">
-              <div className="w-48">
-                <svg viewBox="0 0 200 100" className="w-full h-auto">
-                  <path
-                    d="M100,20 L130,50 L100,80 L70,50 Z"
-                    fill="#3b82f6"
-                    stroke="#fff"
-                    strokeWidth="2"
-                  />
-                  <circle cx="100" cy="30" r="15" fill="#fbbf24" />
-                  <path
-                    d="M85,30 L90,25 L95,30 L100,20 L105,30 L110,25 L115,30"
-                    stroke="#fbbf24"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                  <text
-                    x="100"
-                    y="55"
-                    textAnchor="middle"
-                    fill="#fff"
-                    fontSize="14"
-                    fontWeight="bold"
-                  >
-                    AMAZING
-                  </text>
-                  <text
-                    x="100"
-                    y="68"
-                    textAnchor="middle"
-                    fill="#fff"
-                    fontSize="14"
-                    fontWeight="bold"
-                  >
-                    TOURS BD
-                  </text>
-                  <text
-                    x="100"
-                    y="78"
-                    textAnchor="middle"
-                    fill="#94a3b8"
-                    fontSize="6"
-                  >
-                    YOUR TOUR SOLUTION PARTNER
-                  </text>
-                </svg>
-              </div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Amazing Tours BD</h3>
+            <p className="text-slate-400">
+              Your ultimate travel solution partner in Bangladesh. Domestic and
+              international packages, visa support, and holiday planning.
+            </p>
+          </div>
 
-              <div>
-                <h3 className="text-xl font-bold mb-4">
-                  Want To Take Tour Packages?
-                </h3>
-                <button className="bg-primary hover:bg-primary text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg">
-                  Explore Tours
-                </button>
-              </div>
-
-              {/* Social Icons */}
-              <div className="flex gap-3">
-                {[
-                  "facebook",
-                  "twitter",
-                  "linkedin",
-                  "youtube",
-                  "instagram",
-                ].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="w-10 h-10 rounded-full border border-slate-700 hover:border-primary flex items-center justify-center transition-all duration-300 hover:bg-primary group"
-                  >
-                    <svg
-                      className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        fill="none"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Column 2 - Quick Links */}
-            <div
-              className="animate-fadeInUp"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <h3 className="text-xl font-bold mb-6">Quick link</h3>
-              <ul className="space-y-3">
-                {[
-                  "Destinations",
-                  "Tours",
-                  "Visa Service",
-                  "About",
-                  "Blog",
-                  "Contact",
-                ].map((link) => (
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {["Destinations", "Tours", "Visa Service", "About", "Blog", "Contact"].map(
+                (link) => (
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-slate-400 hover:text-primary transition-colors duration-300 flex items-center gap-2"
+                      className="text-slate-400 hover:text-primary transition-colors duration-300"
                     >
-                      <span className="text-primary">›</span>
-                      {link}
+                      › {link}
                     </a>
                   </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 3 - More Inquiry */}
-            <div
-              className="animate-fadeInUp"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                <span className="text-amber-500">📞</span>
-                More Inquiry
-              </h3>
-              <div className="space-y-4 text-slate-400">
-                <p>01898760770, 01898760772</p>
-              </div>
-
-              <div className="mt-6">
-                <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-amber-500">✉️</span>
-                  Send Mail
-                </h4>
-                <a
-                  href="mailto:amazingtoursbd@gmail.com"
-                  className="text-slate-400 hover:text-primary transition-colors duration-300"
-                >
-                  amazingtoursbd@gmail.com
-                </a>
-              </div>
-
-              <div className="mt-6">
-                <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-amber-500">📍</span>
-                  Address
-                </h4>
-                <p className="text-slate-400">
-                  66/67 Elephant Road, 6th Floor, Star Kabab Building, Dhaka,
-                  Bangladesh
-                </p>
-              </div>
-            </div>
-
-            {/* Column 4 - About Amazing Tours */}
-            <div
-              className="animate-fadeInUp"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <h3 className="text-xl font-bold mb-6">About Amazing Tours</h3>
-              <p className="text-slate-400 leading-relaxed">
-                Amazing Tours is the best travel agency in Bangladesh offering
-                domestic and international travel packages, air ticketing (IATA
-                certified), visa support, and holiday planning. Popular
-                destinations include best Asia, Europe, the USA, Australia tour
-                packages and Umrah agency. We are proud members of IATA, TOAB,
-                ATAB, BOTOA, and PATA.
-              </p>
-            </div>
+                )
+              )}
+            </ul>
           </div>
 
-          {/* Copyright Bar */}
-          <div className="border-t border-slate-800 pt-8 text-center">
-            <p className="text-slate-500">
-              Copyright 2026, Amazing Tours. All Rights Reserved.
+          {/* Contact */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <p className="text-slate-400 mb-2">📞 01898760770, 01898760772</p>
+            <p className="text-slate-400 mb-2">
+              ✉️ amazingtoursbd@gmail.com
+            </p>
+            <p className="text-slate-400">
+              📍 66/67 Elephant Road, 6th Floor, Dhaka, Bangladesh
             </p>
           </div>
+
+          {/* About */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">About Amazing Tours</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Amazing Tours is the leading travel agency in Bangladesh offering
+              domestic & international packages, air tickets, and Umrah
+              services.
+            </p>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-800 pt-8 text-center text-slate-500">
+          &copy; 2026 Amazing Tours. All Rights Reserved.
         </div>
       </footer>
 
       <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
         @keyframes scaleIn {
           from {
             opacity: 0;
@@ -487,12 +282,14 @@ const StatsNewsletterFooter = () => {
           }
         }
 
-        .animate-fadeInUp {
-          animation: fadeInUp 0.8s ease-out both;
-        }
-
         .animate-scaleIn {
           animation: scaleIn 0.6s ease-out both;
+        }
+
+        .text-gradient {
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
         }
       `}</style>
     </>

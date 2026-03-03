@@ -9,7 +9,7 @@ const DealsSection = () => {
       subtitle: "Discover Great Deal",
       image:
         "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800",
-      bgColor: "from-primary to-primary",
+      bgColor: "", // No gradient overlay
       buttonColor: "bg-primary hover:bg-primary",
       size: "large",
     },
@@ -49,7 +49,7 @@ const DealsSection = () => {
 
   return (
     <section className="py-20 px-4 bg-white relative overflow-hidden">
-      {/* Animated background gradient orbs */}
+      {/* Animated background orbs */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
       <div
         className="absolute bottom-20 right-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl animate-pulse"
@@ -82,9 +82,12 @@ const DealsSection = () => {
                 alt={deals[0].category}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div
-                className={`absolute inset-0 bg-gradient-to-t ${deals[0].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500`}
-              ></div>
+              {/* Only apply gradient if bgColor is defined */}
+              {deals[0].bgColor && (
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${deals[0].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500 rounded-3xl`}
+                ></div>
+              )}
             </div>
 
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
@@ -96,17 +99,15 @@ const DealsSection = () => {
               </h3>
               <p className="text-xl font-semibold mb-6">{deals[0].subtitle}</p>
 
-              {/* Decorative line */}
               <div className="w-20 h-1 bg-white/50 rounded-full mb-4 group-hover:w-32 transition-all duration-500"></div>
             </div>
 
-            {/* Corner decoration */}
             <div className="absolute top-6 right-6 w-16 h-16 border-t-4 border-r-4 border-white/40 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110"></div>
           </div>
 
           {/* Middle Column - Two Stacked Cards */}
           <div className="lg:col-span-4 space-y-6 lg:space-y-8">
-            {/* Deal 2 - Australia */}
+            {/* Deal 2 */}
             <div
               className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 h-[238px] animate-slideInUp"
               style={{ animationDelay: "0.1s" }}
@@ -117,12 +118,13 @@ const DealsSection = () => {
                   alt={deals[1].category}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${deals[1].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500`}
-                ></div>
+                {deals[1].bgColor && (
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${deals[1].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500 rounded-3xl`}
+                  ></div>
+                )}
               </div>
 
-              {/* Discount Badge */}
               <div className="absolute top-6 right-6 bg-primary text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
                 {deals[1].discount}
               </div>
@@ -131,13 +133,11 @@ const DealsSection = () => {
                 <p className="text-lg font-serif italic mb-2">
                   {deals[1].category}
                 </p>
-                <h3 className="text-2xl md:text-3xl font-bold">
-                  {deals[1].title}
-                </h3>
+                <h3 className="text-2xl md:text-3xl font-bold">{deals[1].title}</h3>
               </div>
             </div>
 
-            {/* Deal 3 - Honeymoon */}
+            {/* Deal 3 */}
             <div
               className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 h-[238px] animate-slideInUp"
               style={{ animationDelay: "0.2s" }}
@@ -148,9 +148,11 @@ const DealsSection = () => {
                   alt={deals[2].category}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${deals[2].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500`}
-                ></div>
+                {deals[2].bgColor && (
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${deals[2].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500 rounded-3xl`}
+                  ></div>
+                )}
               </div>
 
               <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
@@ -196,17 +198,17 @@ const DealsSection = () => {
                 alt={deals[3].category}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${deals[3].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500`}
-              ></div>
+              {deals[3].bgColor && (
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${deals[3].bgColor} opacity-70 group-hover:opacity-60 transition-opacity duration-500 rounded-3xl`}
+                ></div>
+              )}
             </div>
 
             <div className="absolute inset-0 p-8 flex flex-col justify-between text-white">
               <div>
                 <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-                  <p className="text-lg font-serif italic">
-                    {deals[3].category}
-                  </p>
+                  <p className="text-lg font-serif italic">{deals[3].category}</p>
                 </div>
               </div>
 
@@ -214,9 +216,7 @@ const DealsSection = () => {
                 <h3 className="text-5xl md:text-6xl font-black mb-4 transform group-hover:scale-105 transition-transform duration-500">
                   {deals[3].discount}
                 </h3>
-                <p className="text-xl font-semibold mb-6">
-                  {deals[3].subtitle}
-                </p>
+                <p className="text-xl font-semibold mb-6">{deals[3].subtitle}</p>
 
                 <button
                   className={`${deals[3].buttonColor} text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2`}
@@ -239,7 +239,6 @@ const DealsSection = () => {
               </div>
             </div>
 
-            {/* Decorative pattern overlay */}
             <div
               className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
               style={{

@@ -1,62 +1,108 @@
+import { MapPin } from "lucide-react";
+
 export default function DesiredVacationCountry() {
   const destinations = [
     {
       id: 1,
       name: "Bangladesh",
       image:
-        "https://images.unsplash.com/photo-1542401886-65d27afda266?w=500&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1578898887932-dce23a595ad4?q=80&w=1200&auto=format&fit=crop",
     },
     {
       id: 2,
       name: "Thailand",
       image:
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
     },
     {
       id: 3,
       name: "Europe",
       image:
-        "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      id: 4,
+      name: "Maldives",
+      image:
+        "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      id: 5,
+      name: "Dubai",
+      image:
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      id: 6,
+      name: "Turkey",
+      image:
+        "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=1200&auto=format&fit=crop",
     },
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4">
+
         {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-primary font-semibold text-lg mb-4 flex items-center justify-center gap-4">
-            <span className="inline-block w-12 h-0.5 bg-primary"></span>
+        <div className="text-center mb-14">
+          <p className="text-blue-600 font-semibold tracking-widest uppercase">
             Explore Places
-            <span className="inline-block w-12 h-0.5 bg-primary"></span>
           </p>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+          <h2 className="text-5xl font-bold text-gray-900 mt-2">
             Desired Vacation Country
           </h2>
         </div>
 
-        {/* Destinations Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {destinations.map((destination) => (
+        {/* Gallery Grid */}
+        <div
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-3
+            gap-6
+          "
+        >
+          {destinations.map((place) => (
             <div
-              key={destination.id}
-              className="relative h-96 overflow-hidden rounded-2xl group cursor-pointer"
+              key={place.id}
+              className="
+                relative
+                h-64
+                rounded-2xl
+                overflow-hidden
+                group
+                shadow-md
+                hover:shadow-2xl
+                transition
+                cursor-pointer
+              "
             >
-              {/* Background Image */}
+              {/* Image */}
               <img
-                src={destination.image}
-                alt={destination.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                src={place.image}
+                alt={place.name}
+                className="
+                  w-full h-full object-cover
+                  group-hover:scale-110
+                  transition duration-700
+                "
               />
 
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-300"></div>
+              {/* Blue gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-800/20 to-transparent"></div>
 
-              {/* Country Name */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-4xl md:text-5xl font-bold text-white drop-shadow-2xl">
-                  {destination.name}
+              {/* Bottom content */}
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <h3 className="text-white font-semibold text-lg flex items-center gap-2">
+                  <MapPin size={16} />
+                  {place.name}
                 </h3>
+
+                <button className="h-9 px-4 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md font-medium">
+                  Book Now
+                </button>
               </div>
             </div>
           ))}

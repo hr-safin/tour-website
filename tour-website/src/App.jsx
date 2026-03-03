@@ -1,13 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Home from './pages/Home';
-import Destinations from './pages/Destinations';
-import About from './pages/About';
-import Tours from './pages/Tours';
-import VisaService from './pages/VisaService';
-import AirTickets from './pages/AirTickets';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import StatsNewsletterFooter from "./components/StatsNewsletterFooter";
+import Home from "./pages/Home";
+import Destinations from "./pages/Destinations";
+import DestinationDetail from "./pages/DestinationDetail";
+import About from "./pages/About";
+import Tours from "./pages/Tours";
+import VisaService from "./pages/VisaService";
+import AirTickets from "./pages/AirTickets";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/destinations" element={<Destinations />} />
+          <Route path="/country/:slug" element={<DestinationDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/visa-service" element={<VisaService />} />
@@ -24,6 +27,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <StatsNewsletterFooter />
       </div>
     </Router>
   );

@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems = [
     { label: "HOME", path: "/" },
@@ -9,265 +19,184 @@ export default function Navigation() {
     { label: "ABOUT", path: "/about" },
     { label: "TOURS", path: "/tours" },
     { label: "VISA SERVICE", path: "/visa-service" },
-    { label: "AIR TICKETS +", path: "/air-tickets" },
+    { label: "AIR TICKETS", path: "/air-tickets" },
     { label: "BLOG", path: "/blog" },
     { label: "CONTACT", path: "/contact" },
   ];
 
-  const handleLinkClick = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <>
       {/* Top Bar */}
-      <div style={{ backgroundColor: '#122B90' }} className="text-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center py-2 gap-2">
-            {/* Left side - Email and Welcome message */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-xs sm:text-sm">
-              <div className="flex items-center gap-2">
-                <span style={{ color: '#9BBEFF' }}>✉</span>
-                <span style={{ color: '#F0F5FF' }}>Email:</span>
-                <a
-                  href="mailto:amazingtoursbd@gmail.com"
-                  style={{ color: '#9BBEFF' }}
-                  className="hover:opacity-80 transition-opacity"
-                >
-                  amazingtoursbd@gmail.com
-                </a>
-              </div>
-              <div className="hidden lg:block" style={{ color: '#DFE8FF' }}>
-                Welcome to Amazing Tours. Call us 01898760770, 01898760772
-              </div>
+      <div 
+        className={`transition-all duration-300 ${
+          scrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-auto opacity-100'
+        }`}
+        style={{ backgroundColor: '#122B90' }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center py-2 gap-2 text-white text-sm">
+            <div className="flex items-center gap-6">
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+                amazingtoursbd@gmail.com
+              </span>
+              <span className="hidden lg:block">Welcome to Amazing Tours</span>
             </div>
 
-            {/* Right side - Language and Social icons */}
-            <div className="flex items-center gap-4">
-              {/* Language Selector */}
-              <div className="flex items-center gap-2 text-sm cursor-pointer hover:opacity-80 transition-opacity">
-                <span>🇺🇸</span>
-                <span>EN</span>
-                <svg
-                  className="w-3 h-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-
-              {/* Social Icons */}
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
+              {['f', '𝕏', 'in', '▶', '📷'].map((icon, i) => (
                 <a
+                  key={i}
                   href="#"
-                  style={{ borderColor: '#1A42C0' }}
-                  className="w-7 h-7 rounded-full border hover:opacity-80 flex items-center justify-center transition-all text-xs"
+                  className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-blue-900 transition-all duration-300"
                 >
-                  f
+                  {icon}
                 </a>
-                <a
-                  href="#"
-                  style={{ borderColor: '#1A42C0' }}
-                  className="w-7 h-7 rounded-full border hover:opacity-80 flex items-center justify-center transition-all text-xs"
-                >
-                  𝕏
-                </a>
-                <a
-                  href="#"
-                  style={{ borderColor: '#1A42C0' }}
-                  className="w-7 h-7 rounded-full border hover:opacity-80 flex items-center justify-center transition-all text-xs"
-                >
-                  in
-                </a>
-                <a
-                  href="#"
-                  style={{ borderColor: '#1A42C0' }}
-                  className="w-7 h-7 rounded-full border hover:opacity-80 flex items-center justify-center transition-all text-xs"
-                >
-                  ▶
-                </a>
-                <a
-                  href="#"
-                  style={{ borderColor: '#1A42C0' }}
-                  className="w-7 h-7 rounded-full border hover:opacity-80 flex items-center justify-center transition-all text-xs"
-                >
-                  📷
-                </a>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
+      <nav 
+        className={`sticky top-0 z-50 bg-white transition-all duration-300 ${
+          scrolled ? 'shadow-xl' : 'shadow-md'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            
             {/* Logo */}
-            <a href="/" className="flex-shrink-0">
+            <Link to="/" className="flex items-center gap-3 group">
               <div 
-                className="relative w-20 h-20 rounded-2xl border-4 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300"
                 style={{ 
-                  background: 'linear-gradient(to bottom right, #1D4ED8, #1637A8)',
-                  borderColor: '#79A8FF'
+                  background: 'linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%)'
                 }}
               >
-                {/* Sun decoration */}
-                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2">
-                  <div 
-                    className="w-6 h-6 rounded-full relative"
-                    style={{ backgroundColor: '#79A8FF' }}
-                  >
-                    {/* Sun rays */}
-                    <div className="absolute inset-0">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="absolute w-px h-2 left-1/2 top-0 origin-bottom"
-                          style={{ 
-                            backgroundColor: '#79A8FF',
-                            transform: `rotate(${i * 45}deg) translateX(-50%)`
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Plane icon */}
-                <div className="absolute top-2 right-2">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 2L3 7l7 3 7-3-7-5zM3 13l7 3 7-3M3 10l7 3 7-3" />
-                  </svg>
-                </div>
-
-                {/* Text */}
-                <div className="text-center text-white font-bold leading-tight mt-3">
-                  <div className="text-sm tracking-wider">AMAZING</div>
-                  <div className="text-sm tracking-wider">TOURS BD</div>
-                  <div 
-                    className="text-[8px] tracking-wide mt-0.5"
-                    style={{ color: '#BDD3FF' }}
-                  >
-                    YOUR TOUR SOLUTION PARTNER
-                  </div>
-                </div>
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-            </a>
+              
+              <div>
+                <h1 
+                  className="font-bold text-xl"
+                  style={{ color: '#1D4ED8' }}
+                >
+                  Amazing Tours
+                </h1>
+                <p className="text-xs text-gray-500">Your Journey Begins</p>
+              </div>
+            </Link>
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center gap-8">
               {menuItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.path}
-                  className="font-semibold transition-colors duration-200 text-sm tracking-wide text-black"
-                  style={{ color: '#000000' }}
-                  onMouseEnter={(e) => e.target.style.color = '#1D4ED8'}
-                  onMouseLeave={(e) => e.target.style.color = '#000000'}
+                  to={item.path}
+                  className="relative text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300 group"
                 >
                   {item.label}
-                </a>
+                  <span 
+                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+                  ></span>
+                </Link>
               ))}
+            </div>
+
+            {/* Call Now Button */}
+            <div className="hidden lg:flex items-center gap-4">
+              <a
+                href="tel:01898760770"
+                className="relative flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white overflow-hidden group"
+                style={{ backgroundColor: '#1D4ED8' }}
+              >
+                {/* Animated background */}
+                <span 
+                  className="absolute inset-0 w-0 bg-blue-700 transition-all duration-300 ease-out group-hover:w-full"
+                ></span>
+                
+                {/* Icon */}
+                <svg 
+                  className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" 
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                
+                {/* Text */}
+                <span className="relative z-10">Call Now</span>
+                
+                {/* Ripple effect */}
+                <span className="absolute inset-0 rounded-full border-2 border-white opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500"></span>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-black hover:opacity-80 transition-opacity"
-              aria-label="Toggle menu"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              {isMenuOpen ? (
-                <svg
-                  className="w-7 h-7"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-7 h-7"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
+              <div className="w-6 space-y-1.5">
+                <span 
+                  className={`block h-0.5 bg-blue-600 rounded-full transition-all duration-300 ${
+                    isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                  }`}
+                ></span>
+                <span 
+                  className={`block h-0.5 bg-blue-600 rounded-full transition-all duration-300 ${
+                    isMenuOpen ? 'opacity-0' : ''
+                  }`}
+                ></span>
+                <span 
+                  className={`block h-0.5 bg-blue-600 rounded-full transition-all duration-300 ${
+                    isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`}
+                ></span>
+              </div>
             </button>
           </div>
 
           {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div 
-              className="lg:hidden pb-4 border-t"
-              style={{ borderColor: '#F0F5FF' }}
-            >
-              <div className="py-4 space-y-1">
-                {menuItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.path}
-                    onClick={handleLinkClick}
-                    className="block py-3 px-4 font-semibold transition-all duration-200 rounded-lg text-black"
-                    style={{ color: '#000000' }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = '#1D4ED8';
-                      e.target.style.backgroundColor = '#F0F5FF';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = '#000000';
-                      e.target.style.backgroundColor = 'transparent';
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-
-              {/* Mobile Contact Info */}
-              <div 
-                className="pt-4 border-t px-4 space-y-3 text-sm"
-                style={{ borderColor: '#F0F5FF' }}
-              >
-                <div 
-                  className="flex items-center gap-2 text-black"
+          <div
+            className={`lg:hidden overflow-hidden transition-all duration-300 ${
+              isMenuOpen ? 'max-h-[500px] pb-6' : 'max-h-0'
+            }`}
+          >
+            <div className="pt-4 space-y-1 border-t">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-600 transition-all duration-200"
                 >
-                  <span>📞</span>
-                  <span>01898760770, 01898760772</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-black">✉️</span>
-                  <a
-                    href="mailto:amazingtoursbd@gmail.com"
-                    style={{ color: '#1D4ED8' }}
-                    className="hover:opacity-80 transition-opacity"
-                  >
-                    amazingtoursbd@gmail.com
-                  </a>
-                </div>
-              </div>
+                  {item.label}
+                </Link>
+              ))}
+
+              {/* Mobile Call Button */}
+              <a
+                href="tel:01898760770"
+                className="flex items-center justify-center gap-2 mt-4 py-3 rounded-lg font-semibold text-white"
+                style={{ backgroundColor: '#1D4ED8' }}
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                Call Now: 01898760770
+              </a>
             </div>
-          )}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
