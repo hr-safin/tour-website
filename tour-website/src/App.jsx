@@ -10,6 +10,7 @@ import VisaService from "./pages/VisaService";
 import AirTickets from "./pages/AirTickets";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-        <StatsNewsletterFooter />
+        <Footer />
       </div>
     </Router>
   );

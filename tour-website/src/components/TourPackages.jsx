@@ -36,6 +36,7 @@ export default function TourPackages() {
   return (
     <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* HEADER */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
@@ -47,25 +48,26 @@ export default function TourPackages() {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
             Explore Our Special Vacations
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+          <p className="text-md text-gray-600 max-w-2xl mx-auto">
             Discover amazing destinations with our curated tour packages
           </p>
         </div>
 
-        {/* CENTERED SMALL CARDS */}
-        <div className="flex flex-wrap justify-center gap-8">
+        {/* CARDS */}
+        <div className="flex flex-wrap justify-center gap-12">
           {vacation_packages.map((pkg, index) => (
             <div
               key={pkg.id}
-              className="group w-[320px] bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 flex flex-col"
+              className="group w-[290px] bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 flex flex-col"
               style={{
                 animation: `fadeInUp 0.6s ease-out ${index * 0.15}s both`,
               }}
             >
-              {/* IMAGE (same height for all) */}
+              {/* IMAGE */}
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={pkg.image}
@@ -100,7 +102,9 @@ export default function TourPackages() {
 
               {/* CONTENT */}
               <div className="p-4 flex flex-col flex-1">
-                <h3 className="font-bold text-base mb-3 text-gray-900 line-clamp-2 min-h-[48px]">
+
+                {/* ✅ Smaller title */}
+                <h3 className="font-bold text-sm mb-3 text-gray-900 line-clamp-2 min-h-[40px]">
                   {pkg.title}
                 </h3>
 
@@ -108,13 +112,13 @@ export default function TourPackages() {
                   <p className="text-xs text-gray-500 mb-4">{pkg.route}</p>
                 )}
 
-                {/* Button stays at bottom */}
+                {/* ✅ Smaller button */}
                 <a
                   href="tel:01898760770"
-                  className="mt-auto w-full flex items-center justify-center gap-2 py-2 rounded-lg font-semibold text-sm text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="mt-auto w-full flex items-center justify-center gap-2 py-1.5 rounded-lg font-semibold text-xs text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   style={{ backgroundColor: "#1D4ED8" }}
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-3.5 h-3.5" />
                   Call Now
                 </a>
               </div>
@@ -122,10 +126,10 @@ export default function TourPackages() {
           ))}
         </div>
 
-        {/* VIEW ALL BUTTON */}
+        {/* ✅ Smaller View All button */}
         <div className="text-center mt-16">
           <button
-            className="px-12 py-4 rounded-full font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            className="px-8 py-2.5 cursor-pointer text-sm rounded-full font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
             style={{ backgroundColor: "#1D4ED8" }}
           >
             View All Packages →

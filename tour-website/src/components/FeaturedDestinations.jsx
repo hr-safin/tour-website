@@ -1,35 +1,52 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { MapPin } from 'lucide-react';
 
 const destinationsData = {
   Europe: [
     {
       id: 1,
+      name: "Rome, Italy",
+      image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&h=600&fit=crop",
+      tours: 140,
+      departures: 240,
+      travelers: 15786
+    },
+    {
+      id: 2,
+      name: "Paris, France",
+      image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=600&fit=crop",
+      tours: 140,
+      departures: 240,
+      travelers: 15786
+    },
+    {
+      id: 3,
       name: "Switzerland",
-      image: "https://images.unsplash.com/photo-1531583959375-fab3cd498f08?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/789380/pexels-photo-789380.jpeg",
       tours: 85,
       departures: 156,
       travelers: 12453
     },
     {
-      id: 2,
+      id: 4,
       name: "Scotland, UK",
-      image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/23887010/pexels-photo-23887010.jpeg",
       tours: 110,
       departures: 230,
       travelers: 15786
     },
     {
-      id: 3,
+      id: 5,
       name: "Athens, Greece",
-      image: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg",
       tours: 95,
       departures: 180,
       travelers: 14320
     },
     {
-      id: 4,
+      id: 6,
       name: "Istanbul, Turkey",
-      image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/2381048/pexels-photo-2381048.jpeg",
       tours: 120,
       departures: 245,
       travelers: 18965
@@ -37,31 +54,31 @@ const destinationsData = {
   ],
   Asia: [
     {
-      id: 5,
+      id: 7,
       name: "Bangkok, Thailand",
-      image: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/16786188/pexels-photo-16786188.jpeg",
       tours: 150,
       departures: 320,
       travelers: 25600
     },
     {
-      id: 6,
+      id: 8,
       name: "Tokyo, Japan",
-      image: "https://images.unsplash.com/photo-1540959375944-7049f642e9a0?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/30944529/pexels-photo-30944529.jpeg",
       tours: 130,
       departures: 280,
       travelers: 22400
     },
     {
-      id: 7,
+      id: 9,
       name: "Bali, Indonesia",
-      image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/20775605/pexels-photo-20775605.jpeg",
       tours: 140,
       departures: 300,
       travelers: 24300
     },
     {
-      id: 8,
+      id: 10,
       name: "Dubai, UAE",
       image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop",
       tours: 110,
@@ -71,7 +88,7 @@ const destinationsData = {
   ],
   "Middle East": [
     {
-      id: 9,
+      id: 11,
       name: "Dubai, UAE",
       image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop",
       tours: 110,
@@ -79,7 +96,7 @@ const destinationsData = {
       travelers: 19800
     },
     {
-      id: 10,
+      id: 12,
       name: "Jerusalem, Israel",
       image: "https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800&h=600&fit=crop",
       tours: 75,
@@ -87,15 +104,15 @@ const destinationsData = {
       travelers: 12300
     },
     {
-      id: 11,
+      id: 13,
       name: "Petra, Jordan",
-      image: "https://images.unsplash.com/photo-1585873691162-5c7d2bb09e8b?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/23124016/pexels-photo-23124016.jpeg",
       tours: 60,
       departures: 120,
       travelers: 9800
     },
     {
-      id: 12,
+      id: 14,
       name: "Muscat, Oman",
       image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&h=600&fit=crop",
       tours: 45,
@@ -105,7 +122,7 @@ const destinationsData = {
   ],
   Africa: [
     {
-      id: 13,
+      id: 15,
       name: "Cairo, Egypt",
       image: "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=800&h=600&fit=crop",
       tours: 90,
@@ -113,7 +130,7 @@ const destinationsData = {
       travelers: 15400
     },
     {
-      id: 14,
+      id: 16,
       name: "Cape Town, South Africa",
       image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&h=600&fit=crop",
       tours: 85,
@@ -121,7 +138,7 @@ const destinationsData = {
       travelers: 14200
     },
     {
-      id: 15,
+      id: 17,
       name: "Marrakech, Morocco",
       image: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=800&h=600&fit=crop",
       tours: 70,
@@ -129,7 +146,7 @@ const destinationsData = {
       travelers: 11800
     },
     {
-      id: 16,
+      id: 18,
       name: "Zanzibar, Tanzania",
       image: "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=800&h=600&fit=crop",
       tours: 55,
@@ -139,7 +156,7 @@ const destinationsData = {
   ],
   "North America": [
     {
-      id: 17,
+      id: 19,
       name: "New York, USA",
       image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&h=600&fit=crop",
       tours: 140,
@@ -147,7 +164,7 @@ const destinationsData = {
       travelers: 23500
     },
     {
-      id: 18,
+      id: 20,
       name: "Los Angeles, USA",
       image: "https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=800&h=600&fit=crop",
       tours: 125,
@@ -155,7 +172,7 @@ const destinationsData = {
       travelers: 21300
     },
     {
-      id: 19,
+      id: 21,
       name: "Vancouver, Canada",
       image: "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=800&h=600&fit=crop",
       tours: 95,
@@ -163,7 +180,7 @@ const destinationsData = {
       travelers: 16700
     },
     {
-      id: 20,
+      id: 22,
       name: "Cancun, Mexico",
       image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&h=600&fit=crop",
       tours: 105,
@@ -173,7 +190,7 @@ const destinationsData = {
   ],
   Oceania: [
     {
-      id: 21,
+      id: 23,
       name: "Sydney, Australia",
       image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&h=600&fit=crop",
       tours: 100,
@@ -181,7 +198,7 @@ const destinationsData = {
       travelers: 17200
     },
     {
-      id: 22,
+      id: 24,
       name: "Auckland, New Zealand",
       image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&h=600&fit=crop",
       tours: 80,
@@ -189,7 +206,7 @@ const destinationsData = {
       travelers: 13800
     },
     {
-      id: 23,
+      id: 25,
       name: "Fiji Islands",
       image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop",
       tours: 60,
@@ -197,9 +214,9 @@ const destinationsData = {
       travelers: 10500
     },
     {
-      id: 24,
+      id: 26,
       name: "Bora Bora, French Polynesia",
-      image: "https://images.unsplash.com/photo-1589197331516-6c0f5e24478a?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
       tours: 45,
       departures: 90,
       travelers: 7800
@@ -209,13 +226,27 @@ const destinationsData = {
 
 export default function FeaturedDestinations() {
   const [activeTab, setActiveTab] = useState('Europe');
+  const [currentPage, setCurrentPage] = useState(0);
   
   const tabs = Object.keys(destinationsData);
   const currentDestinations = destinationsData[activeTab];
+  
+  const itemsPerPage = 4;
+  const totalPages = Math.ceil(currentDestinations.length / itemsPerPage);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setCurrentPage(0); // Reset to first page when changing tabs
+  };
+
+  const visibleDestinations = currentDestinations.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
         
         {/* Header */}
         <div className="text-center mb-12">
@@ -224,124 +255,95 @@ export default function FeaturedDestinations() {
           </h2>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-2">
             {tabs.map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => handleTabChange(tab)}
                 className={`px-6 py-3 rounded-full font-semibold text-sm md:text-base transition-all duration-300 ${
                   activeTab === tab
-                    ? 'text-white shadow-lg scale-105'
+                    ? 'bg-blue-600 text-white shadow-lg scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
                 }`}
-                style={{
-                  backgroundColor: activeTab === tab ? '#1D4ED8' : undefined
-                }}
               >
                 {tab}
               </button>
             ))}
           </div>
+        </div>
 
-          {/* Progress Dots */}
-          <div className="flex justify-center gap-2">
-            {tabs.map((tab, index) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  activeTab === tab ? 'w-8' : 'w-2 bg-gray-300'
-                }`}
-                style={{
-                  backgroundColor: activeTab === tab ? '#1D4ED8' : undefined
-                }}
-              />
+        {/* Cards Grid */}
+        <div className="mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {visibleDestinations.map((destination) => (
+              <DestinationCard key={destination.id} destination={destination} />
             ))}
           </div>
         </div>
 
-        {/* Destinations Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {currentDestinations.map((destination, index) => (
-            <div
-              key={destination.id}
-              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2"
-              style={{
-                animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
-              }}
-            >
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={destination.image}
-                  alt={destination.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 relative -mt-12">
-                {/* Location Name with Icon */}
-                <div className="flex items-center gap-2 mb-3">
-                  <svg 
-                    className="w-5 h-5 flex-shrink-0"
-                    style={{ color: '#1D4ED8' }}
-                    fill="currentColor" 
-                    viewBox="0 0 20 20"
-                  >
-                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                  </svg>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {destination.name}
-                  </h3>
-                </div>
-
-                {/* Stats */}
-                <div className="space-y-2 text-sm text-gray-600">
-                  <p>
-                    <span className="font-semibold text-gray-900">{destination.tours}</span> tours | <span className="font-semibold text-gray-900">{destination.departures}</span> departure
-                  </p>
-                  <p>
-                    <span className="font-semibold text-gray-900">{destination.travelers.toLocaleString()}</span> guest travelled.
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Progress Dots */}
-        <div className="flex justify-center gap-2 mt-12">
-          {tabs.map((tab, index) => (
+        {/* Progress Dots */}
+        <div className="flex justify-center gap-2">
+          {Array.from({ length: totalPages }).map((_, index) => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
+              key={index}
+              onClick={() => setCurrentPage(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                activeTab === tab ? 'w-8' : 'w-2 bg-gray-300'
+                currentPage === index ? 'w-8 bg-blue-600' : 'w-2 bg-gray-300 hover:bg-gray-400'
               }`}
-              style={{
-                backgroundColor: activeTab === tab ? '#1D4ED8' : undefined
-              }}
+              aria-label={`Go to page ${index + 1}`}
             />
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
+  );
+}
+
+function DestinationCard({ destination }) {
+  return (
+    <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group h-80">
+      
+      {/* Image */}
+      <img
+        src={destination.image}
+        alt={destination.name}
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+
+      {/* Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+
+      {/* Title */}
+      <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 z-10 pointer-events-none">
+        <MapPin size={18} className="text-white flex-shrink-0" />
+        <h3 className="text-white font-bold text-lg">
+          {destination.name}
+        </h3>
+      </div>
+
+      {/* Hover Info Panel */}
+      <div
+        className="
+          absolute bottom-0 left-0 right-0
+          bg-white/95 backdrop-blur-md px-6 py-4 text-sm text-gray-700
+          translate-y-full opacity-0
+          group-hover:translate-y-0 group-hover:opacity-100
+          transition-all duration-500
+        "
+      >
+        <p>
+          <span className="font-semibold text-gray-900">{destination.tours}</span> tours |{" "}
+          <span className="font-semibold text-gray-900">{destination.departures}</span> departures
+        </p>
+        <p>
+          <span className="font-semibold text-gray-900">
+            {destination.travelers.toLocaleString()}
+          </span>{" "}
+          guests travelled
+        </p>
+      </div>
+    </div>
   );
 }

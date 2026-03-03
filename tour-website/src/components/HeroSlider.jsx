@@ -176,7 +176,7 @@ export default function HeroSlider() {
                   className={`w-full h-full object-cover transition-all duration-700 ${
                     index === imageIndex 
                       ? 'scale-110 brightness-100' 
-                      : 'scale-100 brightness-75'
+                      : 'scale-100 brightness-85'
                   }`}
                 />
                 
@@ -188,15 +188,15 @@ export default function HeroSlider() {
                   <div className="absolute inset-0 border-2 sm:border-4 border-white rounded-lg sm:rounded-xl md:rounded-2xl animate-pulse"></div>
                 )}
 
-                <div 
+                {/* <div 
                   className={`absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-white text-xs sm:text-sm md:text-base transition-all duration-300 ${
                     index === imageIndex 
                       ? 'bg-white/30 backdrop-blur-md scale-110' 
                       : 'bg-black/40'
                   }`}
                 >
-                  {index + 1}
-                </div>
+                  
+                </div> */}
 
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300"></div>
               </div>
@@ -244,10 +244,7 @@ export default function HeroSlider() {
       </button>
 
       {/* Counter - Desktop Only (Bottom Right) */}
-      <div className="hidden md:block absolute right-6 md:right-8 lg:right-12 bottom-6 md:bottom-8 lg:bottom-12 z-40 text-white font-bold">
-        <span className="text-2xl md:text-3xl">{String(current + 1).padStart(2, '0')}</span>
-        <span className="text-white/60 text-lg md:text-xl"> / {String(sliderData.length).padStart(2, '0')}</span>
-      </div>
+      
 
       <style jsx>{`
         @keyframes slideInLeft {
