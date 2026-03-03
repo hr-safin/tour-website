@@ -93,7 +93,7 @@ export default function HeroSlider() {
         <div
           key={slide.id}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === current ? 'opacity-100' : 'opacity-0'
+            index === current ? 'opacity-100' : ''
           }`}
         >
           <img

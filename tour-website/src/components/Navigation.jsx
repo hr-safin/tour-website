@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaYoutube,
+  FaInstagram
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,16 +53,19 @@ export default function Navigation() {
               <span className="hidden lg:block">Welcome to Amazing Tours</span>
             </div>
 
+            {/* Social Icons */}
             <div className="flex items-center gap-2">
-              {['f', '𝕏', 'in', '▶', '📷'].map((icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-blue-900 transition-all duration-300"
-                >
-                  {icon}
-                </a>
-              ))}
+              {[FaFacebookF, FaXTwitter, FaLinkedinIn, FaYoutube, FaInstagram].map(
+                (Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-blue-900 transition-all duration-300"
+                  >
+                    <Icon size={14} />
+                  </a>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -117,12 +127,10 @@ export default function Navigation() {
                 className="relative flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white overflow-hidden group"
                 style={{ backgroundColor: '#1D4ED8' }}
               >
-                {/* Animated background */}
                 <span 
                   className="absolute inset-0 w-0 bg-blue-700 transition-all duration-300 ease-out group-hover:w-full"
                 ></span>
                 
-                {/* Icon */}
                 <svg 
                   className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" 
                   fill="currentColor" 
@@ -131,10 +139,8 @@ export default function Navigation() {
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
                 
-                {/* Text */}
                 <span className="relative z-10">Call Now</span>
                 
-                {/* Ripple effect */}
                 <span className="absolute inset-0 rounded-full border-2 border-white opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500"></span>
               </a>
             </div>
@@ -163,39 +169,54 @@ export default function Navigation() {
               </div>
             </button>
           </div>
+        </div>
 
-          {/* Mobile Menu */}
-          <div
-            className={`lg:hidden overflow-hidden transition-all duration-300 ${
-              isMenuOpen ? 'max-h-[500px] pb-6' : 'max-h-0'
-            }`}
-          >
-            <div className="pt-4 space-y-1 border-t">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-600 transition-all duration-200"
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              {/* Mobile Call Button */}
-              <a
-                href="tel:01898760770"
-                className="flex items-center justify-center gap-2 mt-4 py-3 rounded-lg font-semibold text-white"
-                style={{ backgroundColor: '#1D4ED8' }}
+        {/* Mobile Menu Sliding from Left */}
+        <div
+          className={`lg:hidden fixed top-0 left-0 w-64 h-full bg-white shadow-xl z-50 transform transition-transform duration-300 ${
+            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
+          <div className="flex justify-between items-center px-4 py-4 border-b">
+            <h2 className="font-bold text-lg text-blue-700">Menu</h2>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="flex flex-col pt-4 space-y-1">
+            {menuItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                onClick={() => setIsMenuOpen(false)}
+                className="block py-3 px-6 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-600 transition-all duration-200"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                Call Now: 01898760770
-              </a>
-            </div>
+                {item.label}
+              </Link>
+            ))}
+            <a
+              href="tel:01898760770"
+              className="flex items-center justify-center gap-2 mt-4 py-3 mx-6 rounded-lg font-semibold text-white"
+              style={{ backgroundColor: '#1D4ED8' }}
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              Call Now: 01898760770
+            </a>
           </div>
         </div>
+
+        {/* Overlay */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/40 z-40"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+        )}
       </nav>
     </>
   );

@@ -31,7 +31,6 @@ export default function Home() {
       <WhyChooseSection />
       <DealsSection />
       <BlogSection />
-      <StatsNewsletterFooter />
     </div>
   );
 }
