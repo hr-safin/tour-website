@@ -11,8 +11,8 @@ import BlogSection from "../components/BlogSection";
 import StatsNewsletterFooter from "../components/StatsNewsletterFooter";
 import FeaturedDestinations from "../components/FeaturedDestinations";
 import AboutSection from "../components/AboutSection";
-import { Parentheses } from "lucide-react";
-import ParallaxHero from "../components/ParallaxHero";
+// import { Parentheses } from "lucide-react";
+// import ParallaxHero from "../components/ParallaxHero";
 
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
       <TourPackages />
       <FeaturedDestinations />
       <DesiredVacationCountry />
-      <ParallaxHero />
+      {/* <ParallaxHero /> */}
       <UltimateTravelExperience />
       <PhilippinePackages />
       <MalaysiaPackages />
