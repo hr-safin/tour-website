@@ -16,7 +16,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Head Office Email",
-    lines: ["timextours@gmail.com"],
+    lines: ["timeextours@gmail.com"],
     href: "mailto:timextours@gmail.com",
     bg: "#F0FDF4",
     accent: "#16A34A",
@@ -24,7 +24,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Branch Office Email",
-    lines: ["timextours.office@gmail.com"],
+    lines: ["timeextours.office@gmail.com"],
     href: "mailto:timextours.office@gmail.com",
     bg: "#FFF7ED",
     accent: "#EA580C",
@@ -43,7 +43,7 @@ const offices = [
   {
     label: "Head Office",
     address: "Ahsan Tower (2nd Floor), 56 Kemal Ataturke Avenue, Banani, C/A, Dhaka-1213",
-    email: "timextours@gmail.com",
+    email: "timeextours@gmail.com",
     phone: "+880 1317-525225",
     mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.3!2d90.4025!3d23.7935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c79934b79ff7%3A0x26b0d9c67a7d3c44!2sBanani%2C+Dhaka!5e0!3m2!1sen!2sbd!4v1709500000000!5m2!1sen!2sbd",
     accent: BRAND,
@@ -52,7 +52,7 @@ const offices = [
   {
     label: "Branch Office",
     address: "GA-25/5/A (2nd Floor), Pragati Sarani, Shajadpur, Gulshan, Dhaka-1212",
-    email: "timextours.office@gmail.com",
+    email: "timeextours.office@gmail.com",
     phone: "+880 1317-525225",
     mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.8!2d90.4142!3d23.7968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a0a0a0a0a0%3A0x0!2sGulshan%2C+Dhaka!5e0!3m2!1sen!2sbd!4v1709500000000!5m2!1sen!2sbd",
     accent: "#EA580C",

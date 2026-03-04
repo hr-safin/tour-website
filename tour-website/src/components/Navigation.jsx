@@ -41,7 +41,7 @@ export default function Navigation() {
   return (
     <>
       {/* Top Bar */}
-      {/* <div 
+      <div 
         className={`transition-all duration-500 ease-in-out ${
           scrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-auto opacity-100'
         }`}
@@ -58,13 +58,13 @@ export default function Navigation() {
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                timextours@gmail.com
+                timeextours@gmail.com
               </a>
               <span className="hidden lg:block animate-pulse">Welcome to Time Ex Tours & Travels</span>
             </div>
 
             {/* Social Icons */}
-            {/* <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               {socialIcons.map((social, i) => (
                 <a
                   key={social.name}
@@ -80,8 +80,8 @@ export default function Navigation() {
               ))}
             </div>
           </div>
-        </div> */}
-      {/* </div> */} 
+        </div>
+      </div>
 
       {/* Main Navigation */}
       <nav 

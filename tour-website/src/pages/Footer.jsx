@@ -135,9 +135,9 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-xs mb-0.5">Mail Us</p>
-                    <a href="mailto:timextours@gmail.com"
+                    <a href="mailto:timeextours@gmail.com"
                       className="text-white font-semibold text-sm hover:text-blue-400 transition-colors break-all">
-                      timextours@gmail.com
+                      timeextours@gmail.com
                     </a>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function Footer() {
                       </p>
                       <a href="mailto:timextours@gmail.com"
                         className="text-gray-500 text-xs hover:text-blue-400 transition-colors mt-0.5 block">
-                        timextours@gmail.com
+                        timeextours@gmail.com
                       </a>
                     </div>
                     <div className="border-t border-gray-700/60 pt-3">
@@ -216,7 +216,7 @@ export default function Footer() {
                       </p>
                       <a href="mailto:timextours.office@gmail.com"
                         className="text-gray-500 text-xs hover:text-blue-400 transition-colors mt-0.5 block">
-                        timextours.office@gmail.com
+                        timeextours.office@gmail.com
                       </a>
                     </div>
                   </div>
@@ -329,6 +329,17 @@ export default function Footer() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-3">
                 <p className="text-gray-400 text-sm text-center md:text-left">
                   © {new Date().getFullYear()} Time Ex Tours & Travels. All rights reserved.
+                  <span className="block sm:inline sm:ml-2">
+                    Developed by{" "}
+                    <a
+                      href="https://ventureit.com.bd"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-200"
+                    >
+                      VentureIT
+                    </a>
+                  </span>
                 </p>
                 <div className="flex flex-wrap justify-center gap-5">
                   <Link to="/about" onClick={handleLinkClick}
