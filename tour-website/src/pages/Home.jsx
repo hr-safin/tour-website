@@ -3,7 +3,7 @@ import SearchBar from "../components/SearchBar";
 import TourPackages from "../components/TourPackages";
 import DesiredVacationCountry from "../components/DesiredVacationCountry";
 import UltimateTravelExperience from "../components/UltimateTravelExperience";
-import PhilippinePackages from "../components/PhilippinePackages";
+import PhilippinePackages from "../components/PopularTravelPackages";
 import MalaysiaPackages from "../components/MalaysiaPackages";
 import WhyChooseSection from "../components/whychoosesection";
 import DealsSection from "../components/DealsSection";
@@ -11,6 +11,13 @@ import BlogSection from "../components/BlogSection";
 import StatsNewsletterFooter from "../components/StatsNewsletterFooter";
 import FeaturedDestinations from "../components/FeaturedDestinations";
 import AboutSection from "../components/AboutSection";
+import ParallaxHero from "../components/ParallaxHero";
+import WhyTravelWithUs from "../components/WhyTravelWithUs";
+import BestService from "../components/BestService";
+import LastMinuteDeals from "../components/LastMinuteDeals";
+import FAQ from "../components/faq";
+import StatsSection from "../components/StatsSection";
+import AboutMVV from "../components/AboutMVV";
 // import { Parentheses } from "lucide-react";
 // import ParallaxHero from "../components/ParallaxHero";
 
@@ -20,17 +27,20 @@ export default function Home() {
     <div>
       <HeroSlider />
       <AboutSection />
+      <AboutMVV />
+      <WhyTravelWithUs />
       {/* <SearchBar /> */}
+      <PhilippinePackages />
       <TourPackages />
       <FeaturedDestinations />
+      {/* <BestService /> */}
+      <ParallaxHero />
       <DesiredVacationCountry />
-      {/* <ParallaxHero /> */}
-      <UltimateTravelExperience />
-      <PhilippinePackages />
-      <MalaysiaPackages />
-      <WhyChooseSection />
       <DealsSection />
+      <LastMinuteDeals />
       <BlogSection />
+      <FAQ />
+      <StatsSection />
     </div>
   );
 }
