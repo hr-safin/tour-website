@@ -18,29 +18,33 @@ import LastMinuteDeals from "../components/LastMinuteDeals";
 import FAQ from "../components/faq";
 import StatsSection from "../components/StatsSection";
 import AboutMVV from "../components/AboutMVV";
-// import { Parentheses } from "lucide-react";
-// import ParallaxHero from "../components/ParallaxHero";
-
 
 export default function Home() {
   return (
     <div>
       <HeroSlider />
-      <AboutSection />
-      <AboutMVV />
-      <WhyTravelWithUs />
-      {/* <SearchBar /> */}
-      <PhilippinePackages />
-      <TourPackages />
-      <FeaturedDestinations />
-      {/* <BestService /> */}
+      <div className="px-4 sm:px-0">
+        <AboutSection />
+        <AboutMVV />
+        <WhyTravelWithUs />
+        {/* <SearchBar /> */}
+        <PhilippinePackages />
+        <TourPackages />
+        <FeaturedDestinations />
+        {/* <BestService /> */}
+      </div>
+
+      {/* ParallaxHero — full width, no padding */}
       <ParallaxHero />
-      <DesiredVacationCountry />
-      <DealsSection />
-      <LastMinuteDeals />
-      <BlogSection />
-      <FAQ />
-      <StatsSection />
+
+      <div className="px-4 sm:px-0">
+        <DesiredVacationCountry />
+        <DealsSection />
+        <LastMinuteDeals />
+        <BlogSection />
+        <FAQ />
+        <StatsSection />
+      </div>
     </div>
   );
 }

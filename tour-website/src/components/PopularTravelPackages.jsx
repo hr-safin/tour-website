@@ -135,7 +135,7 @@ export default function PopularTravelPackages() {
       `}</style>
 
       <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
 
           {/* Header */}
           <div className="text-center mb-12">
@@ -149,7 +149,7 @@ export default function PopularTravelPackages() {
           </div>
 
           {/* Cards grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {packages.map((pkg, i) => (
               <div key={pkg.id} className="pkg-card" style={{ animationDelay: `${i * 0.1}s` }}>
                 <PackageCard pkg={pkg} />

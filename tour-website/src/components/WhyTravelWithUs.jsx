@@ -41,7 +41,7 @@ export default function WhyTravelWithUs() {
         }
       `}</style>
 
-      <section className="why-section w-full bg-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="why-section w-full bg-white py-16 sm:py-20 lg:py-24 px-6 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
 
           {/* Header */}

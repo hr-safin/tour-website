@@ -78,7 +78,7 @@ export default function AboutMVV() {
 
         {/* ── VISION + MISSION ── two-column split */}
         <section className="py-16 sm:py-20 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
 
             {/* Section label */}
             <div className="text-center mb-12 sm:mb-16 m-up">

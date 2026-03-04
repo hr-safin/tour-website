@@ -57,7 +57,7 @@ const SLIDES = [
   },
 ];
 
-const SLIDE_INTERVAL  = 7000;
+const SLIDE_INTERVAL   = 7000;
 const GALLERY_INTERVAL = 2000;
 
 // Preload all bg images into browser cache immediately
@@ -143,17 +143,10 @@ export default function HeroSlider() {
         .anim-g  { animation: fadeUp 0.6s 0.08s ease-out both; }
       `}</style>
 
-      {/*
-        ── Layout strategy ──────────────────────────────────────────────────
-        On lg+  : single section, background fills it, arrows float on sides.
-        On sm/md: two stacked rows — top row is the slide content (relative,
-                  backgrounds clipped inside it), bottom row is the nav arrows.
-                  No fixed height anywhere — content sizes naturally.
-        ─────────────────────────────────────────────────────────────────────
-      */}
-      <div className="w-full bg-gray-950">
+      {/* ── No bg color on wrapper — let the slide bg show through ── */}
+      <div className="w-full">
 
-        {/* ── Slide area (backgrounds clip here) ── */}
+        {/* ── Slide area ── */}
         <section className="relative w-full overflow-hidden lg:h-screen lg:min-h-[600px]">
 
           {/* Backgrounds — always mounted, opacity-switched */}
@@ -226,7 +219,7 @@ export default function HeroSlider() {
             </div>
           </div>
 
-          {/* Desktop arrows — float on sides, lg+ only */}
+          {/* Desktop arrows */}
           <button
             onClick={prev}
             aria-label="Previous slide"
@@ -247,30 +240,31 @@ export default function HeroSlider() {
           >
             <ChevronRight className="w-6 h-6 text-white" strokeWidth={2.5} />
           </button>
+
+          {/* ── Mobile arrows — overlaid at bottom of slide, no separate row ── */}
+          <div className="lg:hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-30
+            flex items-center gap-3">
+            <button
+              onClick={prev}
+              aria-label="Previous slide"
+              className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/60
+                border border-white/20 backdrop-blur-sm flex items-center justify-center
+                transition-all duration-200 active:scale-90"
+            >
+              <ChevronLeft className="w-5 h-5 text-white" strokeWidth={2.5} />
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next slide"
+              className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/60
+                border border-white/20 backdrop-blur-sm flex items-center justify-center
+                transition-all duration-200 active:scale-90"
+            >
+              <ChevronRight className="w-5 h-5 text-white" strokeWidth={2.5} />
+            </button>
+          </div>
+
         </section>
-
-        {/* ── Mobile / tablet arrow row — below slide content, lg hidden ── */}
-        <div className="lg:hidden flex items-center justify-center gap-4 py-4 bg-gray-950">
-          <button
-            onClick={prev}
-            aria-label="Previous slide"
-            className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20
-              border border-white/15 flex items-center justify-center
-              transition-all duration-200 active:scale-90"
-          >
-            <ChevronLeft className="w-5 h-5 text-white" strokeWidth={2.5} />
-          </button>
-          <button
-            onClick={next}
-            aria-label="Next slide"
-            className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20
-              border border-white/15 flex items-center justify-center
-              transition-all duration-200 active:scale-90"
-          >
-            <ChevronRight className="w-5 h-5 text-white" strokeWidth={2.5} />
-          </button>
-        </div>
-
       </div>
     </>
   );

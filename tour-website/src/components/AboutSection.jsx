@@ -49,7 +49,7 @@ const LazyImage = ({ src, alt, className }) => {
 export default function AboutSection() {
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
