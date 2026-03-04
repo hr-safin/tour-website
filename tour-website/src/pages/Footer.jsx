@@ -88,7 +88,7 @@ export default function Footer() {
         <div className="relative z-10">
 
           {/* ── Top contact bar ── */}
-          <div className="bg-gray-900/80 backdrop-blur-sm border-b border-gray-700 py-7">
+          <div className="bg-gray-800/90 backdrop-blur-sm border-b border-gray-700 py-7">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
@@ -190,12 +190,35 @@ export default function Footer() {
                   </Link>
 
                   {/* Address */}
-                  <div className="mb-5">
-                    <p className="text-white font-semibold text-sm mb-1">Time Ex Tours & Travels</p>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Dhaka, Bangladesh<br />
-                      Your Journey Begins Here.
-                    </p>
+                  <div className="mb-5 space-y-3">
+                    <div>
+                      <p className="text-white font-semibold text-xs uppercase tracking-wider mb-1" style={{ color: "#60a5fa" }}>
+                        🏢 Head Office
+                      </p>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        Ahsan Tower (2nd Floor),<br />
+                        56 Kemal Ataturke Avenue,<br />
+                        Banani, C/A, Dhaka-1213
+                      </p>
+                      <a href="mailto:timextours@gmail.com"
+                        className="text-gray-500 text-xs hover:text-blue-400 transition-colors mt-0.5 block">
+                        timextours@gmail.com
+                      </a>
+                    </div>
+                    <div className="border-t border-gray-700/60 pt-3">
+                      <p className="text-white font-semibold text-xs uppercase tracking-wider mb-1" style={{ color: "#60a5fa" }}>
+                        🏢 Branch Office
+                      </p>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        GA-25/5/A (2nd Floor),<br />
+                        Pragati Sarani, Shajadpur,<br />
+                        Gulshan, Dhaka-1212
+                      </p>
+                      <a href="mailto:timextours.office@gmail.com"
+                        className="text-gray-500 text-xs hover:text-blue-400 transition-colors mt-0.5 block">
+                        timextours.office@gmail.com
+                      </a>
+                    </div>
                   </div>
 
                   {/* Social icons */}

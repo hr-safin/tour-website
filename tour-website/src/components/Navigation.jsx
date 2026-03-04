@@ -92,20 +92,15 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             
-            {/* Logo */}
+            {/* Logo — now uses image */}
             <Link to="/" onClick={handleMenuClick} className="flex items-center gap-3 group cursor-pointer">
-              <div 
-                className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 relative overflow-hidden"
-                style={{ 
-                  background: 'linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%)'
-                }}
-              >
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-                <svg className="w-8 h-8 text-white relative z-10 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:rotate-3 group-hover:scale-110 flex-shrink-0">
+                <img
+                  src="https://i.postimg.cc/NFSK81pD/logoimage-Photoroom.png"
+                  alt="Time Ex Tours & Travels Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              
               <div>
                 <h1 
                   className="font-bold text-xl group-hover:text-blue-700 transition-colors duration-300"
@@ -113,18 +108,17 @@ export default function Navigation() {
                 >
                   Time Ex Tours & Travels
                 </h1>
-                <p className="text-xs text-gray-500 group-hover:text-gray-700 transition-colors duration-300">Your Journey Begins</p>
               </div>
             </Link>
 
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-6">
+            {/* Desktop Menu — text-xs instead of text-sm */}
+            <div className="hidden lg:flex items-center gap-5">
               {menuItems.map((item, index) => (
                 <Link
                   key={item.label}
                   to={item.path}
                   onClick={handleMenuClick}
-                  className={`relative text-sm font-semibold transition-all duration-300 group py-2 ${
+                  className={`relative text-xs font-semibold transition-all duration-300 group py-2 ${
                     location.pathname === item.path 
                       ? 'text-blue-600' 
                       : 'text-gray-700 hover:text-blue-600'
@@ -207,15 +201,12 @@ export default function Navigation() {
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-6 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div 
-                  className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
-                  style={{ 
-                    background: 'linear-gradient(135deg, #fff 0%, #f0f9ff 100%)'
-                  }}
-                >
-                  <svg className="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg flex-shrink-0">
+                  <img
+                    src="https://i.postimg.cc/NFSK81pD/logoimage-Photoroom.png"
+                    alt="Time Ex Tours & Travels Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h2 className="font-bold text-base text-white">Time Ex Tours</h2>
