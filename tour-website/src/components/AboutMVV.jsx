@@ -82,10 +82,10 @@ export default function AboutMVV() {
 
             {/* Section label */}
             <div className="text-center mb-12 sm:mb-16 m-up">
-              <span className="inline-block px-4 py-1.5 rounded-full text-white text-xs font-bold
+              {/* <span className="inline-block px-4 py-1.5 rounded-full text-white text-xs font-bold
                 tracking-widest uppercase mb-4" style={{ background: BRAND }}>
                 Who We Are
-              </span>
+              </span> */}
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900"
                 style={{ letterSpacing: "-0.02em" }}>
                 Our Vision & Mission
