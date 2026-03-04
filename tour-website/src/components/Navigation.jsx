@@ -41,7 +41,7 @@ export default function Navigation() {
   return (
     <>
       {/* Top Bar */}
-      <div 
+      {/* <div 
         className={`transition-all duration-500 ease-in-out ${
           scrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-auto opacity-100'
         }`}
@@ -64,7 +64,7 @@ export default function Navigation() {
             </div>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               {socialIcons.map((social, i) => (
                 <a
                   key={social.name}
@@ -80,8 +80,8 @@ export default function Navigation() {
               ))}
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */} 
 
       {/* Main Navigation */}
       <nav 

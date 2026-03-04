@@ -12,7 +12,7 @@ const destinations = [
   {
     id: 1,
     name: "Bangladesh",
-    image: "https://images.unsplash.com/photo-1578898887932-dce23a595ad4?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.pexels.com/photos/33793814/pexels-photo-33793814.png",
     // desktop: tall (1 col, 2 rows) | tablet: normal | mobile: normal
     cls: "col-span-1 row-span-1 md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2",
   },
