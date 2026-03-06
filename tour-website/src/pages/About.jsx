@@ -264,7 +264,7 @@ export default function About() {
                       style={{ background: "linear-gradient(135deg, #1D4ED8, #3b82f6)" }}>M</div>
                     <div>
                       <p className="text-gray-900 font-black text-sm">Moshiur Ahmmed</p>
-                      <p className="text-gray-400 text-xs">Founder & CEO, Time Ex Tours & Travels</p>
+                      <p className="text-gray-400 text-xs">Founder & CEO </p>
                     </div>
                   </div>
                 </div>

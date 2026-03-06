@@ -196,7 +196,7 @@ export default function AboutMVV() {
                     </div>
                     <div>
                       <p className="text-gray-900 font-black text-sm">Moshiur Ahmmed</p>
-                      <p className="text-gray-400 text-xs">Founder & CEO, Time Ex Tours & Travels</p>
+                      <p className="text-gray-400 text-xs">Founder & CEO </p>
                     </div>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ export default function AboutMVV() {
                 </svg>
                 Call Us Now
               </a>
-              <Link
+              {/* <Link
                 to="/contact"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm
@@ -284,7 +284,7 @@ export default function AboutMVV() {
                   hover:scale-105 active:scale-95"
               >
                 Get In Touch
-              </Link>
+              </Link> */}
             </div>
           </div>
         </section>

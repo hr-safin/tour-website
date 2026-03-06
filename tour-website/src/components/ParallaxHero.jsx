@@ -151,7 +151,7 @@ export default function ParallaxHero() {
               }}
             >
               <Phone size={15} />
-              Call Now
+              Book Now
             </a>
             <Link
               to="/tours"
@@ -190,7 +190,7 @@ export default function ParallaxHero() {
                 Moshiur Ahmmed
               </p>
               <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 10, marginTop: 3, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                Founder & CEO · Time Ex Tours & Travels
+                Founder & CEO 
               </p>
             </div>
           </div>

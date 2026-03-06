@@ -130,20 +130,11 @@ export default function AboutSection() {
                 <div className="absolute top-[44%] left-[42%] z-10 w-5 h-5 rounded-full shadow-lg border-4 border-white"
                   style={{ background: BRAND }} />
 
-                {/* Floating badge — years of experience */}
-                <div className="about-badge absolute bottom-6 left-0 z-20 bg-white rounded-2xl shadow-xl px-5 py-4 flex items-center gap-3 border border-gray-100">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: "#EFF6FF" }}>
-                    <span className="text-2xl font-black" style={{ color: BRAND }}>12</span>
-                  </div>
-                  <div>
-                    <p className="font-black text-gray-900 text-sm leading-none">Years of</p>
-                    <p className="font-black text-sm leading-none mt-0.5" style={{ color: BRAND }}>Excellence</p>
-                  </div>
-                </div>
+                
+                
 
                 {/* Floating badge — happy clients */}
-                <div className="about-badge absolute top-4 right-[-12px] z-20 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
+                {/* <div className="about-badge absolute top-4 right-[-12px] z-20 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: "#F0FDF4" }}>
                     <span className="text-lg">😊</span>
@@ -152,7 +143,7 @@ export default function AboutSection() {
                     <p className="font-black text-gray-900 text-xs leading-none">20K+</p>
                     <p className="text-gray-500 text-[10px] mt-0.5">Happy Travelers</p>
                   </div>
-                </div>
+                </div> */}
 
               </div>
             </div>
@@ -217,15 +208,7 @@ export default function AboutSection() {
                 >
                   <Phone size={14} /> Call Us Now
                 </a>
-                <Link
-                  to="/about"
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold
-                    text-sm border-2 transition-all hover:scale-105 active:scale-95"
-                  style={{ borderColor: BRAND, color: BRAND }}
-                >
-                  Learn More <ArrowRight size={14} />
-                </Link>
+               
               </div>
 
             </div>

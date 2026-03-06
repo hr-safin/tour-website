@@ -306,13 +306,13 @@ export default function Tours() {
                 style={{ color: BRAND }}>
                 <Phone size={14} /> Call Us Now
               </a>
-              <Link to="/contact"
+              {/* <Link to="/contact"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold
                   text-sm border-2 border-white/40 text-white transition-all
                   hover:bg-white/10 hover:scale-105 active:scale-95">
                 Get In Touch
-              </Link>
+              </Link> */}
             </div>
           </div>
         </section>

@@ -21,11 +21,12 @@ export default function Navigation() {
 
   const menuItems = [
     { label: "HOME", path: "/" },
-    { label: "DESTINATIONS", path: "/destinations" },
     { label: "ABOUT", path: "/about" },
+    { label: "DESTINATIONS", path: "/destinations" },
     { label: "TOURS", path: "/tours" },
     { label: "VISA SERVICE", path: "/visa-service" },
     { label: "AIR TICKETS", path: "/air-tickets" },
+    { label: "GALLERY", path: "/gallery" },
     { label: "BLOG", path: "/blog" },
     { label: "CONTACT", path: "/contact" },
   ];
@@ -60,7 +61,6 @@ export default function Navigation() {
                 </svg>
                 timeextours@gmail.com
               </a>
-              <span className="hidden lg:block animate-pulse">Welcome to Time Ex Tours & Travels</span>
             </div>
 
             {/* Social Icons */}
