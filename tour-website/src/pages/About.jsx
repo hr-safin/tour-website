@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, MapPin, Mail, Award, Users, Globe, Shield } from "lucide-react";
+import TestimonialsSection from "../components/TestimonialsSection";
 
 const BRAND = "#1D4ED8";
 
@@ -146,31 +147,8 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── Stats bar ── */}
-        <section className="py-10 sm:py-12" style={{ background: "#F8FAFF" }}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {stats.map((s, i) => {
-                const Icon = s.icon;
-                return (
-                  <div key={s.label}
-                    className="stat-card bg-white rounded-2xl p-5 flex items-center gap-4 shadow-sm"
-                    data-aos="fade-up" data-aos-delay={`${i * 80}`}>
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: "#EFF6FF" }}>
-                      <Icon size={20} color={BRAND} />
-                    </div>
-                    <div>
-                      <p className="font-black text-2xl text-gray-900 leading-none">{s.value}</p>
-                      <p className="text-gray-500 text-xs mt-0.5">{s.label}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
+        {/* ── Testimonial*/}
+        <TestimonialsSection />
         {/* ── Vision + Mission ── */}
         <section className="py-16 sm:py-20 lg:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

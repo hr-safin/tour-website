@@ -16,7 +16,7 @@ import WhyTravelWithUs from "../components/WhyTravelWithUs";
 import BestService from "../components/BestService";
 import LastMinuteDeals from "../components/LastMinuteDeals";
 import FAQ from "../components/faq";
-import StatsSection from "../components/StatsSection";
+import StatsSection from "../components/TestimonialsSection";
 import AboutMVV from "../components/AboutMVV";
 
 export default function Home() {

@@ -108,8 +108,9 @@ const destinations = [
 export default function Destinations() {
   useEffect(() => {
     if (window.AOS) {
-      window.AOS.init({ duration: 600, once: true, easing: "ease-out-cubic" });
+      window.AOS.init({ duration: 600, once: true, easing: "ease-out-cubic", offset: 80 });
     }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
@@ -142,7 +143,7 @@ export default function Destinations() {
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-5 leading-tight"
               style={{ letterSpacing: "-0.02em" }}>
-              Top Destinations
+              Top Destinations From Bangladesh
             </h1>
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 text-sm">

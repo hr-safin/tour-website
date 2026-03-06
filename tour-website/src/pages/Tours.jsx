@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, Phone, ArrowRight, Compass } from "lucide-react";
 
@@ -68,7 +68,7 @@ const tours = [
     destinations: "Switzerland",
     badge: "Popular",
     badgeBg: BRAND,
-    image: "https://images.unsplash.com/photo-1531583959375-fab3cd498f08?w=600&h=450&fit=crop",
+    image: "https://images.pexels.com/photos/267104/pexels-photo-267104.jpeg",
     category: "Mountain",
   },
   {
@@ -139,11 +139,11 @@ function TourCard({ tour, delay }) {
           {tour.category}
         </div>
 
-        {/* Price */}
+        {/* Price
         <div className="absolute bottom-3 left-4">
           <p className="text-white/70 text-[10px] leading-none mb-0.5">Starting from</p>
           <p className="text-white font-black text-xl leading-none">{tour.price}</p>
-        </div>
+        </div> */}
       </div>
 
       {/* Content */}
@@ -180,11 +180,21 @@ function TourCard({ tour, delay }) {
 }
 
 export default function Tours() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered = activeCategory === "All"
+    ? tours
+    : tours.filter((t) => t.category === activeCategory);
+
   useEffect(() => {
     if (window.AOS) {
       window.AOS.init({ duration: 600, once: true, easing: "ease-out-cubic" });
     }
   }, []);
+
+  useEffect(() => {
+    if (window.AOS) setTimeout(() => window.AOS.refresh(), 50);
+  }, [activeCategory]);
 
   return (
     <>
@@ -254,14 +264,17 @@ export default function Tours() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10" data-aos="fade-up">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((cat) => (
-              <button key={cat}
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
                 className="px-4 py-2 rounded-full text-xs font-bold border-2 transition-all
                   duration-200 hover:scale-105 active:scale-95"
                 style={{
-                  borderColor: cat === "All" ? BRAND : "#E5E7EB",
-                  background: cat === "All" ? BRAND : "white",
-                  color: cat === "All" ? "white" : "#6B7280",
-                }}>
+                  borderColor: activeCategory === cat ? BRAND : "#E5E7EB",
+                  background: activeCategory === cat ? BRAND : "white",
+                  color: activeCategory === cat ? "white" : "#6B7280",
+                }}
+              >
                 {cat}
               </button>
             ))}
@@ -270,11 +283,19 @@ export default function Tours() {
 
         {/* ── Tour Cards Grid ── */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {tours.map((tour, i) => (
-              <TourCard key={tour.id} tour={tour} delay={`${(i % 3) * 80}`} />
-            ))}
-          </div>
+          {filtered.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {filtered.map((tour, i) => (
+                <TourCard key={tour.id} tour={tour} delay={`${(i % 3) * 80}`} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-20 text-gray-400">
+              <Compass size={40} className="mx-auto mb-4 opacity-30" />
+              <p className="text-lg font-semibold">No tours in this category yet.</p>
+              <p className="text-sm mt-1">Call us to create a custom package!</p>
+            </div>
+          )}
 
           {/* View All CTA */}
           <div className="text-center mt-14">
@@ -306,7 +327,6 @@ export default function Tours() {
                 style={{ color: BRAND }}>
                 <Phone size={14} /> Call Us Now
               </a>
-              
             </div>
           </div>
         </section>

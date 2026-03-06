@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
 import Gallery from "./pages/Gallery";
+import BlogDetail from "./pages/BlogDetail";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/air-tickets" element={<AirTickets />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
