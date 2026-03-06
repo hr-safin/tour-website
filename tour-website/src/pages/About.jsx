@@ -147,8 +147,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── Testimonial*/}
-        <TestimonialsSection />
+        
         {/* ── Vision + Mission ── */}
         <section className="py-16 sm:py-20 lg:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -280,7 +279,8 @@ export default function About() {
             </div>
           </div>
         </section>
-
+        {/* ── Testimonial*/}
+        <TestimonialsSection />
         {/* ── Contact info strip ── */}
         <section className="py-12 sm:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

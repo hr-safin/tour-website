@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { MapPin, Calendar, DollarSign, Users, Star, Clock, Phone } from "lucide-react";
+import { MapPin, Calendar, Users, Star, Clock, Phone, DollarSign } from "lucide-react";
 
 const BRAND = "#1D4ED8";
 
@@ -32,7 +32,6 @@ const allDestinations = {
     duration: "5-10 days",
     rating: 4.6,
     reviews: 324,
-    price: "From ৳15,000",
     activities: [
       { name: "Wildlife Safari", icon: "🐯" },
       { name: "Beach Exploration", icon: "🏖️" },
@@ -42,15 +41,15 @@ const allDestinations = {
       { name: "Mountain Trekking", icon: "⛰️" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳8,000-15,000/night" },
-      { name: "Mid-range Hotels", price: "৳3,000-8,000/night" },
-      { name: "Budget Hotels", price: "৳1,000-3,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Mid-range Hotels" },
+      { name: "Budget Hotels" },
     ],
     tours: [
-      { id: 1, name: "Sundarbans Mangrove Forest Tour", days: "3 Days", price: "৳18,000" },
-      { id: 2, name: "Cox's Bazar Beach Getaway", days: "4 Days", price: "৳15,000" },
-      { id: 3, name: "Sylhet Tea Garden & Heritage Tour", days: "5 Days", price: "৳22,000" },
-      { id: 4, name: "Chittagong Hill Tracts Adventure", days: "5 Days", price: "৳25,000" },
+      { id: 1, name: "Sundarbans Mangrove Forest Tour", days: "3 Days" },
+      { id: 2, name: "Cox's Bazar Beach Getaway", days: "4 Days" },
+      { id: 3, name: "Sylhet Tea Garden & Heritage Tour", days: "5 Days" },
+      { id: 4, name: "Chittagong Hill Tracts Adventure", days: "5 Days" },
     ],
   },
   thailand: {
@@ -81,7 +80,6 @@ const allDestinations = {
     duration: "7-14 days",
     rating: 4.8,
     reviews: 892,
-    price: "From ৳85,000",
     activities: [
       { name: "Temple Tours", icon: "🛕" },
       { name: "Island Hopping", icon: "🏝️" },
@@ -91,15 +89,15 @@ const allDestinations = {
       { name: "Scuba Diving", icon: "🤿" },
     ],
     accommodation: [
-      { name: "Luxury Resorts", price: "৳12,000-25,000/night" },
-      { name: "Mid-range Hotels", price: "৳5,000-12,000/night" },
-      { name: "Budget Guesthouses", price: "৳1,500-5,000/night" },
+      { name: "Luxury Resorts" },
+      { name: "Mid-range Hotels" },
+      { name: "Budget Guesthouses" },
     ],
     tours: [
-      { id: 1, name: "Bangkok City Explorer", days: "4 Days", price: "৳45,000" },
-      { id: 2, name: "Phuket & Krabi Beach Escape", days: "6 Days", price: "৳75,000" },
-      { id: 3, name: "Chiang Mai Cultural Tour", days: "5 Days", price: "৳55,000" },
-      { id: 4, name: "Full Thailand Experience", days: "10 Days", price: "৳1,10,000" },
+      { id: 1, name: "Bangkok City Explorer", days: "4 Days" },
+      { id: 2, name: "Phuket & Krabi Beach Escape", days: "6 Days" },
+      { id: 3, name: "Chiang Mai Cultural Tour", days: "5 Days" },
+      { id: 4, name: "Full Thailand Experience", days: "10 Days" },
     ],
   },
   europe: {
@@ -130,7 +128,6 @@ const allDestinations = {
     duration: "10-21 days",
     rating: 4.9,
     reviews: 1240,
-    price: "From ৳1,80,000",
     activities: [
       { name: "Museum Visits", icon: "🏛️" },
       { name: "City Walking Tours", icon: "🚶" },
@@ -140,15 +137,15 @@ const allDestinations = {
       { name: "Photography", icon: "📸" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳20,000-50,000/night" },
-      { name: "Mid-range Hotels", price: "৳8,000-20,000/night" },
-      { name: "Hostels & B&Bs", price: "৳2,000-8,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Mid-range Hotels" },
+      { name: "Hostels & B&Bs" },
     ],
     tours: [
-      { id: 1, name: "Paris & Rome Combo", days: "8 Days", price: "৳1,80,000" },
-      { id: 2, name: "Switzerland Alpine Tour", days: "7 Days", price: "৳2,20,000" },
-      { id: 3, name: "Eastern Europe Discovery", days: "10 Days", price: "৳1,60,000" },
-      { id: 4, name: "Grand Europe Tour", days: "15 Days", price: "৳3,50,000" },
+      { id: 1, name: "Paris & Rome Combo", days: "8 Days" },
+      { id: 2, name: "Switzerland Alpine Tour", days: "7 Days" },
+      { id: 3, name: "Eastern Europe Discovery", days: "10 Days" },
+      { id: 4, name: "Grand Europe Tour", days: "15 Days" },
     ],
   },
   cambodia: {
@@ -179,7 +176,6 @@ const allDestinations = {
     duration: "5-10 days",
     rating: 4.7,
     reviews: 456,
-    price: "From ৳65,000",
     activities: [
       { name: "Temple Exploration", icon: "🛕" },
       { name: "Sunrise at Angkor", icon: "🌅" },
@@ -189,15 +185,15 @@ const allDestinations = {
       { name: "Cultural Shows", icon: "💃" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳8,000-18,000/night" },
-      { name: "Mid-range Hotels", price: "৳3,000-8,000/night" },
-      { name: "Guesthouses", price: "৳800-3,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Mid-range Hotels" },
+      { name: "Guesthouses" },
     ],
     tours: [
-      { id: 1, name: "Angkor Wat Sunrise Tour", days: "3 Days", price: "৳35,000" },
-      { id: 2, name: "Siem Reap Temple Circuit", days: "5 Days", price: "৳55,000" },
-      { id: 3, name: "Phnom Penh City Tour", days: "2 Days", price: "৳20,000" },
-      { id: 4, name: "Full Cambodia Experience", days: "8 Days", price: "৳85,000" },
+      { id: 1, name: "Angkor Wat Sunrise Tour", days: "3 Days" },
+      { id: 2, name: "Siem Reap Temple Circuit", days: "5 Days" },
+      { id: 3, name: "Phnom Penh City Tour", days: "2 Days" },
+      { id: 4, name: "Full Cambodia Experience", days: "8 Days" },
     ],
   },
   nepal: {
@@ -228,7 +224,6 @@ const allDestinations = {
     duration: "7-21 days",
     rating: 4.8,
     reviews: 678,
-    price: "From ৳75,000",
     activities: [
       { name: "Trekking", icon: "🥾" },
       { name: "Mountaineering", icon: "⛰️" },
@@ -238,15 +233,15 @@ const allDestinations = {
       { name: "Wildlife Safari", icon: "🦏" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳6,000-15,000/night" },
-      { name: "Tea Houses (Trek)", price: "৳500-2,000/night" },
-      { name: "Budget Guesthouses", price: "৳800-3,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Tea Houses (Trek)" },
+      { name: "Budget Guesthouses" },
     ],
     tours: [
-      { id: 1, name: "Everest Base Camp Trek", days: "14 Days", price: "৳1,20,000" },
-      { id: 2, name: "Annapurna Panorama Trek", days: "7 Days", price: "৳75,000" },
-      { id: 3, name: "Kathmandu Valley Tour", days: "4 Days", price: "৳35,000" },
-      { id: 4, name: "Nepal Adventure Package", days: "10 Days", price: "৳95,000" },
+      { id: 1, name: "Everest Base Camp Trek", days: "14 Days" },
+      { id: 2, name: "Annapurna Panorama Trek", days: "7 Days" },
+      { id: 3, name: "Kathmandu Valley Tour", days: "4 Days" },
+      { id: 4, name: "Nepal Adventure Package", days: "10 Days" },
     ],
   },
   indonesia: {
@@ -277,7 +272,6 @@ const allDestinations = {
     duration: "7-14 days",
     rating: 4.7,
     reviews: 789,
-    price: "From ৳90,000",
     activities: [
       { name: "Surfing", icon: "🏄" },
       { name: "Volcano Trekking", icon: "🌋" },
@@ -287,15 +281,15 @@ const allDestinations = {
       { name: "Cooking Classes", icon: "🍽️" },
     ],
     accommodation: [
-      { name: "Luxury Villas", price: "৳15,000-40,000/night" },
-      { name: "Mid-range Hotels", price: "৳5,000-15,000/night" },
-      { name: "Budget Guesthouses", price: "৳1,000-5,000/night" },
+      { name: "Luxury Villas" },
+      { name: "Mid-range Hotels" },
+      { name: "Budget Guesthouses" },
     ],
     tours: [
-      { id: 1, name: "Bali Cultural Escape", days: "6 Days", price: "৳90,000" },
-      { id: 2, name: "Java & Bali Combo", days: "9 Days", price: "৳1,20,000" },
-      { id: 3, name: "Komodo Island Adventure", days: "5 Days", price: "৳85,000" },
-      { id: 4, name: "Full Indonesia Experience", days: "14 Days", price: "৳1,80,000" },
+      { id: 1, name: "Bali Cultural Escape", days: "6 Days" },
+      { id: 2, name: "Java & Bali Combo", days: "9 Days" },
+      { id: 3, name: "Komodo Island Adventure", days: "5 Days" },
+      { id: 4, name: "Full Indonesia Experience", days: "14 Days" },
     ],
   },
   malaysia: {
@@ -326,7 +320,6 @@ const allDestinations = {
     duration: "5-10 days",
     rating: 4.6,
     reviews: 534,
-    price: "From ৳75,000",
     activities: [
       { name: "City Tours", icon: "🏙️" },
       { name: "Island Hopping", icon: "🏝️" },
@@ -336,15 +329,15 @@ const allDestinations = {
       { name: "Scuba Diving", icon: "🤿" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳10,000-25,000/night" },
-      { name: "Mid-range Hotels", price: "৳4,000-10,000/night" },
-      { name: "Budget Hotels", price: "৳1,200-4,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Mid-range Hotels" },
+      { name: "Budget Hotels" },
     ],
     tours: [
-      { id: 1, name: "Kuala Lumpur City Tour", days: "3 Days", price: "৳35,000" },
-      { id: 2, name: "Langkawi Beach Escape", days: "5 Days", price: "৳65,000" },
-      { id: 3, name: "Borneo Wildlife Adventure", days: "6 Days", price: "৳85,000" },
-      { id: 4, name: "Malaysia Explorer", days: "9 Days", price: "৳1,10,000" },
+      { id: 1, name: "Kuala Lumpur City Tour", days: "3 Days" },
+      { id: 2, name: "Langkawi Beach Escape", days: "5 Days" },
+      { id: 3, name: "Borneo Wildlife Adventure", days: "6 Days" },
+      { id: 4, name: "Malaysia Explorer", days: "9 Days" },
     ],
   },
   bhutan: {
@@ -375,7 +368,6 @@ const allDestinations = {
     duration: "5-10 days",
     rating: 4.9,
     reviews: 212,
-    price: "From ৳1,10,000",
     activities: [
       { name: "Monastery Visits", icon: "🛕" },
       { name: "Trekking", icon: "🥾" },
@@ -385,15 +377,15 @@ const allDestinations = {
       { name: "Bird Watching", icon: "🦅" },
     ],
     accommodation: [
-      { name: "Luxury Lodges", price: "৳25,000-50,000/night" },
-      { name: "Mid-range Hotels", price: "৳10,000-25,000/night" },
-      { name: "Guesthouses", price: "৳4,000-10,000/night" },
+      { name: "Luxury Lodges" },
+      { name: "Mid-range Hotels" },
+      { name: "Guesthouses" },
     ],
     tours: [
-      { id: 1, name: "Tiger's Nest & Thimphu Tour", days: "5 Days", price: "৳1,10,000" },
-      { id: 2, name: "Bhutan Cultural Discovery", days: "7 Days", price: "৳1,40,000" },
-      { id: 3, name: "Bhutan Trek & Culture", days: "10 Days", price: "৳1,80,000" },
-      { id: 4, name: "Bhutan Festival Tour", days: "8 Days", price: "৳1,60,000" },
+      { id: 1, name: "Tiger's Nest & Thimphu Tour", days: "5 Days" },
+      { id: 2, name: "Bhutan Cultural Discovery", days: "7 Days" },
+      { id: 3, name: "Bhutan Trek & Culture", days: "10 Days" },
+      { id: 4, name: "Bhutan Festival Tour", days: "8 Days" },
     ],
   },
   vietnam: {
@@ -424,7 +416,6 @@ const allDestinations = {
     duration: "7-14 days",
     rating: 4.7,
     reviews: 643,
-    price: "From ৳70,000",
     activities: [
       { name: "Ha Long Bay Cruise", icon: "⛵" },
       { name: "Street Food Tour", icon: "🍜" },
@@ -434,15 +425,15 @@ const allDestinations = {
       { name: "Kayaking", icon: "🛶" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳8,000-20,000/night" },
-      { name: "Mid-range Hotels", price: "৳3,000-8,000/night" },
-      { name: "Budget Guesthouses", price: "৳800-3,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Mid-range Hotels" },
+      { name: "Budget Guesthouses" },
     ],
     tours: [
-      { id: 1, name: "Ha Long Bay Cruise", days: "3 Days", price: "৳40,000" },
-      { id: 2, name: "Hoi An & Hue Heritage", days: "5 Days", price: "৳60,000" },
-      { id: 3, name: "North to South Vietnam", days: "12 Days", price: "৳1,20,000" },
-      { id: 4, name: "Vietnam Highlights Tour", days: "8 Days", price: "৳85,000" },
+      { id: 1, name: "Ha Long Bay Cruise", days: "3 Days" },
+      { id: 2, name: "Hoi An & Hue Heritage", days: "5 Days" },
+      { id: 3, name: "North to South Vietnam", days: "12 Days" },
+      { id: 4, name: "Vietnam Highlights Tour", days: "8 Days" },
     ],
   },
   dubai: {
@@ -473,7 +464,6 @@ const allDestinations = {
     duration: "4-7 days",
     rating: 4.8,
     reviews: 987,
-    price: "From ৳1,20,000",
     activities: [
       { name: "Desert Safari", icon: "🏜️" },
       { name: "Sky Diving", icon: "🪂" },
@@ -483,15 +473,15 @@ const allDestinations = {
       { name: "Theme Parks", icon: "🎢" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳25,000-80,000/night" },
-      { name: "Mid-range Hotels", price: "৳10,000-25,000/night" },
-      { name: "Budget Hotels", price: "৳4,000-10,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Mid-range Hotels" },
+      { name: "Budget Hotels" },
     ],
     tours: [
-      { id: 1, name: "Dubai City Explorer", days: "4 Days", price: "৳1,20,000" },
-      { id: 2, name: "Dubai Luxury Package", days: "5 Days", price: "৳1,65,000" },
-      { id: 3, name: "Desert & City Adventure", days: "6 Days", price: "৳1,80,000" },
-      { id: 4, name: "Dubai & Abu Dhabi Combo", days: "7 Days", price: "৳2,10,000" },
+      { id: 1, name: "Dubai City Explorer", days: "4 Days" },
+      { id: 2, name: "Dubai Luxury Package", days: "5 Days" },
+      { id: 3, name: "Desert & City Adventure", days: "6 Days" },
+      { id: 4, name: "Dubai & Abu Dhabi Combo", days: "7 Days" },
     ],
   },
   maldives: {
@@ -522,7 +512,6 @@ const allDestinations = {
     duration: "4-7 days",
     rating: 4.9,
     reviews: 1102,
-    price: "From ৳90,000",
     activities: [
       { name: "Snorkelling", icon: "🤿" },
       { name: "Scuba Diving", icon: "🐠" },
@@ -532,15 +521,15 @@ const allDestinations = {
       { name: "Island Hopping", icon: "🏝️" },
     ],
     accommodation: [
-      { name: "Luxury Resorts", price: "৳30,000-1,00,000/night" },
-      { name: "Mid-range Resorts", price: "৳15,000-30,000/night" },
-      { name: "Local Guesthouses", price: "৳5,000-15,000/night" },
+      { name: "Luxury Resorts" },
+      { name: "Mid-range Resorts" },
+      { name: "Local Guesthouses" },
     ],
     tours: [
-      { id: 1, name: "Maldives Honeymoon Package", days: "5 Days", price: "৳1,40,000" },
-      { id: 2, name: "Family Beach Escape", days: "4 Days", price: "৳95,000" },
-      { id: 3, name: "Dive & Snorkel Package", days: "6 Days", price: "৳1,20,000" },
-      { id: 4, name: "Luxury Overwater Villa", days: "5 Days", price: "৳2,00,000" },
+      { id: 1, name: "Maldives Honeymoon Package", days: "5 Days" },
+      { id: 2, name: "Family Beach Escape", days: "4 Days" },
+      { id: 3, name: "Dive & Snorkel Package", days: "6 Days" },
+      { id: 4, name: "Luxury Overwater Villa", days: "5 Days" },
     ],
   },
   singapore: {
@@ -571,7 +560,6 @@ const allDestinations = {
     duration: "4-7 days",
     rating: 4.8,
     reviews: 876,
-    price: "From ৳1,00,000",
     activities: [
       { name: "Theme Parks", icon: "🎢" },
       { name: "Street Food", icon: "🍜" },
@@ -581,15 +569,15 @@ const allDestinations = {
       { name: "Gardens Walks", icon: "🌿" },
     ],
     accommodation: [
-      { name: "Luxury Hotels", price: "৳18,000-50,000/night" },
-      { name: "Mid-range Hotels", price: "৳8,000-18,000/night" },
-      { name: "Budget Hotels", price: "৳3,000-8,000/night" },
+      { name: "Luxury Hotels" },
+      { name: "Mid-range Hotels" },
+      { name: "Budget Hotels" },
     ],
     tours: [
-      { id: 1, name: "Singapore City Highlights", days: "4 Days", price: "৳1,00,000" },
-      { id: 2, name: "Singapore Family Fun", days: "5 Days", price: "৳1,20,000" },
-      { id: 3, name: "Singapore & Malaysia Combo", days: "7 Days", price: "৳1,50,000" },
-      { id: 4, name: "Singapore Luxury Experience", days: "5 Days", price: "৳1,80,000" },
+      { id: 1, name: "Singapore City Highlights", days: "4 Days" },
+      { id: 2, name: "Singapore Family Fun", days: "5 Days" },
+      { id: 3, name: "Singapore & Malaysia Combo", days: "7 Days" },
+      { id: 4, name: "Singapore Luxury Experience", days: "5 Days" },
     ],
   },
 };
@@ -638,8 +626,8 @@ export default function DestinationDetail() {
               <span>{destination.bestTime}</span>
             </div>
             <div className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-sky-500/60 to-blue-600/60 rounded-full shadow-lg backdrop-blur-sm hover:scale-105 transition-transform duration-300">
-              <DollarSign size={20} />
-              <span>{destination.price}</span>
+              <Clock size={20} />
+              <span>{destination.duration}</span>
             </div>
           </div>
         </div>
@@ -734,9 +722,9 @@ export default function DestinationDetail() {
             <h3 className="text-2xl font-bold mb-4 text-sky-600">Accommodation</h3>
             <div className="space-y-3">
               {destination.accommodation.map((acc, idx) => (
-                <div key={idx} className="flex justify-between items-center pb-3 border-b border-gray-200 last:border-b-0">
+                <div key={idx} className="flex items-center pb-3 border-b border-gray-200 last:border-b-0 gap-2">
+                  <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: BRAND }} />
                   <p className="font-semibold text-gray-900 text-sm">{acc.name}</p>
-                  <p className="text-sky-600 font-bold text-sm">{acc.price}</p>
                 </div>
               ))}
             </div>
@@ -751,14 +739,10 @@ export default function DestinationDetail() {
           {destination.tours.map((tour) => (
             <div key={tour.id} className="bg-white/30 backdrop-blur-md p-6 rounded-3xl border border-sky-200 shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300">
               <h3 className="font-bold text-gray-900 mb-4 text-sm line-clamp-2">{tour.name}</h3>
-              <div className="space-y-2 mb-4">
+              <div className="mb-4">
                 <div className="flex items-center gap-2 text-sm text-gray-700">
                   <Calendar size={16} className="text-sky-500" />
                   <span>{tour.days}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <DollarSign size={16} className="text-sky-500" />
-                  <span className="font-bold text-sky-600">{tour.price}</span>
                 </div>
               </div>
               <a

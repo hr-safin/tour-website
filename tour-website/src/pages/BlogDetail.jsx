@@ -48,7 +48,7 @@ export default function BlogDetail() {
       <div className="min-h-screen bg-white">
 
         {/* Hero */}
-        <div className="detail-hero relative h-72 sm:h-80 lg:h-[420px] flex items-end justify-center pb-10"
+        <div className="detail-hero relative h-72 sm:h-80 lg:h-[420px] flex items-center justify-center"
           style={{ backgroundImage: `url('${post.image}')` }}>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
           <div className="relative z-10 text-center text-white px-4 max-w-4xl" data-aos="fade-up">

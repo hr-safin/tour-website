@@ -267,10 +267,11 @@ export default function Navigation() {
           </div>
 
           {/* Bottom call buttons — compact, side by side */}
-          <div className="flex-shrink-0 px-4 py-4 border-t border-gray-100 flex items-center justify-center gap-3">
+          <div className="px-4 py-3 border-t border-gray-100 flex flex-col justify-center gap-3">
+            <div>
             <a
               href="tel:+8801317525225"
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-semibold text-xs
+              className="flex items-center w-[140px] gap-1.5 px-4 py-2.5 rounded-xl font-semibold text-xs
                 text-white shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95"
               style={{ background: "linear-gradient(135deg, #1D4ED8, #3B82F6)" }}
             >
@@ -279,9 +280,11 @@ export default function Navigation() {
               </svg>
               01317-525225
             </a>
+            </div>
+            
             <a
               href="tel:+8801316690988"
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-semibold text-xs
+              className="flex items-center w-[140px]  gap-1.5 px-4 py-2.5 rounded-xl font-semibold text-xs
                 text-white shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95"
               style={{ background: "linear-gradient(135deg, #059669, #10b981)" }}
             >
