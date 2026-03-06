@@ -112,7 +112,7 @@ export default function Navigation() {
             <Link
               to="/"
               onClick={handleMenuClick}
-              className="flex items-center gap-2 sm:gap-3 group cursor-pointer min-w-0 flex-shrink-0"
+              className="flex items-center gap-1 sm:gap-1 group cursor-pointer min-w-0 flex-shrink-0"
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 transition-all duration-500
                 group-hover:scale-110 group-hover:rotate-3">
@@ -125,7 +125,7 @@ export default function Navigation() {
               <div className="min-w-0">
                 <h1
                   className="font-bold leading-tight transition-colors duration-300
-                    group-hover:text-blue-700 text-[11px] sm:text-base lg:text-lg xl:text-xl"
+                    group-hover:text-blue-700  text-lg lg:text-lg xl:text-xl"
                   style={{ color: "#1D4ED8" }}
                 >
                   Time Ex Tours & Travels
