@@ -305,7 +305,7 @@ export default function VisaService() {
 
         {/* ── Visa Cards ── */}
         <section className="py-14 sm:py-16" style={{ background: "#F8FAFF" }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div className="text-center mb-12" data-aos="fade-up">
               <span className="inline-block px-5 py-1.5 rounded-full text-white text-xs font-bold

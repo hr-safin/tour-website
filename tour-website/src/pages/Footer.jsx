@@ -59,6 +59,7 @@ export default function Footer() {
     { label: "Tours",        path: "/tours" },
     { label: "Visa Service", path: "/visa-service" },
     { label: "Air Tickets",  path: "/air-tickets" },
+    { label: "Gallery",  path: "/gallery" },
     { label: "Blog",         path: "/blog" },
     { label: "Contact",      path: "/contact" },
   ];
@@ -137,7 +138,7 @@ export default function Footer() {
                     <p className="text-gray-400 text-xs mb-0.5">Mail Us</p>
                     <a href="mailto:timeextours@gmail.com"
                       className="text-white font-semibold text-sm hover:text-blue-400 transition-colors break-all">
-                      timeextours@gmail.com
+                      info@timeexbd.com
                     </a>
                   </div>
                 </div>
@@ -171,21 +172,12 @@ export default function Footer() {
                 <div>
                   {/* Logo */}
                   <Link to="/" onClick={handleLinkClick} className="flex items-center gap-3 mb-5 group w-fit">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0
-                        group-hover:scale-105 transition-transform duration-300"
-                      style={{ background: "linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%)" }}
-                    >
-                      <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
+                    <img className="w-20" src="https://i.postimg.cc/FKrvQn2X/Screenshot-2026-03-06-023104-(1).png" alt="" />
                     <div>
-                      <h3 className="text-white font-bold text-base leading-tight group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-white font-bold text-lg leading-tight group-hover:text-blue-400 transition-colors">
                         Time Ex Tours
                       </h3>
-                      <p className="text-gray-400 text-xs">& Travels</p>
+                      <p className="text-gray-400">& Travels</p>
                     </div>
                   </Link>
 
@@ -202,7 +194,7 @@ export default function Footer() {
                       </p>
                       <a href="mailto:timextours@gmail.com"
                         className="text-gray-500 text-xs hover:text-blue-400 transition-colors mt-0.5 block">
-                        timextours@gmail.com
+                        timeextours@gmail.com
                       </a>
                     </div>
                     <div className="border-t border-gray-700/60 pt-3">
@@ -216,7 +208,7 @@ export default function Footer() {
                       </p>
                       <a href="mailto:timextours.office@gmail.com"
                         className="text-gray-500 text-xs hover:text-blue-400 transition-colors mt-0.5 block">
-                        timextours.office@gmail.com
+                        timeextours.office@gmail.com
                       </a>
                     </div>
                   </div>
@@ -234,7 +226,7 @@ export default function Footer() {
                   </div>
 
                   {/* Call buttons */}
-                  <div className="space-y-2">
+                  <div className="space-y-2 w-[175px]">
                     <a href="tel:+8801317525225"
                       className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       style={{ background: "linear-gradient(135deg, #1D4ED8, #3B82F6)" }}>
@@ -332,7 +324,7 @@ export default function Footer() {
                   <span className="block sm:inline sm:ml-2">
                     Developed by{" "}
                     <a
-                      href="https://ventureit.com.bd"
+                      href="https://ventureit.tech"
                       target="_blank"
                       rel="noreferrer"
                       className="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-200"

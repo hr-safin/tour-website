@@ -251,7 +251,7 @@ export default function Tours() {
         </div>
 
         {/* ── Category filter pills ── */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10" data-aos="fade-up">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10" data-aos="fade-up">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((cat) => (
               <button key={cat}
@@ -269,7 +269,7 @@ export default function Tours() {
         </div>
 
         {/* ── Tour Cards Grid ── */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {tours.map((tour, i) => (
               <TourCard key={tour.id} tour={tour} delay={`${(i % 3) * 80}`} />
@@ -306,13 +306,7 @@ export default function Tours() {
                 style={{ color: BRAND }}>
                 <Phone size={14} /> Call Us Now
               </a>
-              {/* <Link to="/contact"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold
-                  text-sm border-2 border-white/40 text-white transition-all
-                  hover:bg-white/10 hover:scale-105 active:scale-95">
-                Get In Touch
-              </Link> */}
+              
             </div>
           </div>
         </section>

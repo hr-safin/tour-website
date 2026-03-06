@@ -11,6 +11,7 @@ import AirTickets from "./pages/AirTickets";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
+import Gallery from "./pages/Gallery";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/tours" element={<Tours />} />
           <Route path="/visa-service" element={<VisaService />} />
           <Route path="/air-tickets" element={<AirTickets />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

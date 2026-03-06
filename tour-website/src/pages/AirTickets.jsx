@@ -51,10 +51,6 @@ function RouteCard({ route, delay }) {
         <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-white text-[11px] font-black shadow"
           style={{ background: route.badgeBg }}>{route.badge}</div>
 
-        <div className="absolute bottom-3 left-4">
-          <p className="text-white/70 text-[10px] mb-0.5">Starting from</p>
-          <p className="text-white font-black text-xl leading-none">{route.price}</p>
-        </div>
       </div>
 
       <div className="p-4 flex flex-col flex-1">
@@ -197,7 +193,7 @@ export default function AirTickets() {
 
         {/* ── Popular Routes ── */}
         <section className="py-14 sm:py-16" style={{ background: "#F8FAFF" }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12" data-aos="fade-up">
               <span className="inline-block px-5 py-1.5 rounded-full text-white text-xs font-bold
                 tracking-[0.2em] uppercase mb-4" style={{ background: BRAND }}>

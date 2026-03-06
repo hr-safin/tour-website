@@ -4,7 +4,6 @@ const deals = [
   {
     id: 1,
     category: "Explore China",
-    discount: "3% Off",
     label: "Discover Great Deal",
     image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&h=700&fit=crop",
     desktop: "lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-3",
@@ -13,7 +12,6 @@ const deals = [
   {
     id: 2,
     category: "Beauty of Australia",
-    discount: "5% Off",
     label: "7 Days in Australia",
     image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&h=400&fit=crop",
     desktop: "lg:col-start-5 lg:col-end-9 lg:row-start-1 lg:row-end-2",
@@ -22,7 +20,6 @@ const deals = [
   {
     id: 3,
     category: "Honeymoon Tour",
-    discount: "3% Off",
     label: "Maldives Getaway",
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop",
     desktop: "lg:col-start-9 lg:col-end-13 lg:row-start-1 lg:row-end-2",
@@ -31,7 +28,6 @@ const deals = [
   {
     id: 4,
     category: "Savings Europe",
-    discount: "2% Off",
     label: "Explore Paris",
     image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&h=400&fit=crop",
     desktop: "lg:col-start-5 lg:col-end-7 lg:row-start-2 lg:row-end-3",
@@ -40,7 +36,6 @@ const deals = [
   {
     id: 5,
     category: "Desert Adventure",
-    discount: "4% Off",
     label: "Dubai Safari",
     image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=400&fit=crop",
     desktop: "lg:col-start-7 lg:col-end-9 lg:row-start-2 lg:row-end-3",
@@ -49,7 +44,6 @@ const deals = [
   {
     id: 6,
     category: "Island Escape",
-    discount: "6% Off",
     label: "Bali Paradise",
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=700&fit=crop",
     desktop: "lg:col-start-9 lg:col-end-13 lg:row-start-2 lg:row-end-4",
@@ -58,7 +52,6 @@ const deals = [
   {
     id: 7,
     category: "Mountain Trek",
-    discount: "4% Off",
     label: "Swiss Alps Tour",
     image: "https://images.pexels.com/photos/914128/pexels-photo-914128.jpeg",
     desktop: "lg:col-start-1 lg:col-end-5 lg:row-start-3 lg:row-end-4",
@@ -67,7 +60,6 @@ const deals = [
   {
     id: 8,
     category: "Heritage Journey",
-    discount: "5% Off",
     label: "Turkey History",
     image: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800&h=400&fit=crop",
     desktop: "lg:col-start-5 lg:col-end-9 lg:row-start-3 lg:row-end-4",
@@ -91,10 +83,10 @@ function DealCard({ deal }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
 
       {/* Badge */}
-      <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-white text-[11px] font-black shadow"
+      {/* <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-white text-[11px] font-black shadow"
         style={{ background: "#1D4ED8" }}>
         {deal.discount}
-      </div>
+      </div> */}
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -112,7 +104,7 @@ function DealCard({ deal }) {
           style={{ background: "#1D4ED8" }}
         >
           <Phone size={12} />
-          Call Now
+          Book Now
         </a>
       </div>
     </div>

@@ -7,7 +7,6 @@ const vacation_packages = [
     duration: "11 Days 10 Nights",
     location: "Saudi Arabia",
     image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&h=450&fit=crop",
-    price: "৳1,85,000",
   },
   {
     id: 2,
@@ -15,7 +14,6 @@ const vacation_packages = [
     duration: "4 Days 3 Nights",
     location: "Maldives",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=450&fit=crop",
-    price: "৳95,000",
   },
   {
     id: 3,
@@ -23,7 +21,6 @@ const vacation_packages = [
     duration: "8 Days 7 Nights",
     location: "South Korea",
     image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&h=450&fit=crop",
-    price: "৳2,25,000",
   },
   {
     id: 4,
@@ -31,16 +28,14 @@ const vacation_packages = [
     duration: "7 Days 6 Nights",
     location: "Thailand",
     image: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&h=450&fit=crop",
-    price: "৳1,10,000",
   },
 ];
 
-function PackageCard({ pkg, delay }) {
+function PackageCard({ pkg }) {
   return (
     <div
       className="tp-card group bg-white rounded-2xl overflow-hidden shadow-md
         hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 flex flex-col"
-      style={{ animation: `tpFadeUp 0.55s ease-out ${delay}s both` }}
     >
       {/* Image */}
       <div className="relative h-52 overflow-hidden flex-shrink-0">
@@ -63,12 +58,6 @@ function PackageCard({ pkg, delay }) {
           <MapPin size={11} />
           {pkg.location}
         </div>
-
-        {/* Price */}
-        <div className="absolute bottom-3 left-3">
-          <p className="text-white/70 text-[10px] leading-none mb-0.5">Starting from</p>
-          <p className="text-white font-black text-lg leading-none">{pkg.price}</p>
-        </div>
       </div>
 
       {/* Content */}
@@ -84,7 +73,7 @@ function PackageCard({ pkg, delay }) {
           style={{ background: "#1D4ED8" }}
         >
           <Phone size={13} />
-          Call Now
+          Call For Price
         </a>
       </div>
     </div>
@@ -95,10 +84,6 @@ export default function TourPackages() {
   return (
     <>
       <style>{`
-        @keyframes tpFadeUp {
-          from { opacity: 0; transform: translateY(28px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
         .tp-img { transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94); }
         .tp-card:hover .tp-img { transform: scale(1.08); }
         .line-clamp-2 {
@@ -129,8 +114,8 @@ export default function TourPackages() {
 
           {/* 4-card grid: 1 col → 2 col → 4 col */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {vacation_packages.map((pkg, i) => (
-              <PackageCard key={pkg.id} pkg={pkg} delay={i * 0.1} />
+            {vacation_packages.map((pkg) => (
+              <PackageCard key={pkg.id} pkg={pkg} />
             ))}
           </div>
 
